@@ -20,7 +20,7 @@ A recruiter or hiring manager arrives at jaredgalloway.com to assess Jared's bac
 1. **Given** a recruiter lands on jaredgalloway.com, **When** the page loads, **Then** Jared's full name, professional tagline, and a clear call-to-action are immediately visible above the fold.
 2. **Given** the recruiter scrolls to the About section, **When** they view it, **Then** they see a professional photo of Jared alongside a written bio.
 3. **Given** the recruiter scrolls to Experience, **When** they view it, **Then** they see a chronological timeline of Jared's employment history with role titles, organisations, and dates.
-4. **Given** the recruiter wants to reach Jared, **When** they scroll to Contact, **Then** they find a working email link and icons linking to his GitHub (https://github.com/jgallowa07) and LinkedIn (https://www.linkedin.com/in/jared-galloway-707836116/).
+4. **Given** the recruiter wants to reach Jared, **When** they scroll to Contact, **Then** they find a working email link and icons linking to his GitHub (https://github.com/jaredgalloway) and LinkedIn (https://www.linkedin.com/in/jared-galloway-707836116/).
 
 ---
 
@@ -126,7 +126,7 @@ A visitor using a screen reader navigates the site by headings and landmarks to 
 **Contact Section**
 
 - **FR-017**: The Contact section MUST include a usable email contact for jaredgalloway07@gmail.com. The address MUST be obfuscated in the page source so that automated scrapers cannot harvest it as plain text (e.g., CSS-reversed display, character-entity encoding, or JS assembly at click-time). When JavaScript is unavailable, the address MUST still be readable by the human visitor (e.g., rendered as visible text via a `<noscript>` element or CSS-only technique).
-- **FR-018**: The Contact section MUST include icon links to GitHub (https://github.com/jgallowa07) and LinkedIn (https://www.linkedin.com/in/jared-galloway-707836116/).
+- **FR-018**: The Contact section MUST include icon links to GitHub (https://github.com/jaredgalloway) and LinkedIn (https://www.linkedin.com/in/jared-galloway-707836116/).
 - **FR-019**: All social/contact links MUST open in a new browser tab and include accessible labels (not icon-only without text alternative).
 
 **Theme Toggle**

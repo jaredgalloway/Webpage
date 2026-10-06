@@ -23,7 +23,7 @@ Top-level personal information used across Hero, About, and Contact sections.
   "social": [
     {
       "platform": "github",
-      "url": "https://github.com/jgallowa07",
+      "url": "https://github.com/jaredgalloway",
       "label": "GitHub"
     },
     {
@@ -94,7 +94,7 @@ Project cards per FR-012/FR-013.
     "description": "A short description in ≤ 3 sentences.",
     "tags": ["Python", "Snakemake", "Bioinformatics"],
     "links": [
-      { "label": "GitHub", "url": "https://github.com/jgallowa07/project" },
+      { "label": "GitHub", "url": "https://github.com/jaredgalloway/project" },
       { "label": "Live Demo", "url": "https://example.com" }
     ]
   }
