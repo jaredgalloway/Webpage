@@ -2,7 +2,7 @@
   {
     "category": "Languages",
     "items": [
-      { "name": "Python" },
+      { "name": "Python", "note": "preferred" },
       { "name": "R" },
       { "name": "C/C++" },
       { "name": "Bash" },
@@ -29,8 +29,8 @@
     "category": "Visualization",
     "items": [
       { "name": "Matplotlib" },
-      { "name": "Plotnine" },
-      { "name": "Altair" }
+      { "name": "Plotnine", "note": "grammar of graphics" },
+      { "name": "Altair", "note": "interactive visualization" }
     ]
   },
   {
@@ -38,23 +38,43 @@
     "items": [
       { "name": "Git" },
       { "name": "GitHub Actions" },
+      { "name": "Travis CI", "only": "cv" },
+      { "name": "Quay", "only": "cv" },
       { "name": "Docker" },
-      { "name": "Apptainer" },
+      { "name": "Apptainer", "note": "formerly Singularity" },
       { "name": "Conda/Mamba" },
       { "name": "Snakemake" },
       { "name": "Nextflow" },
       { "name": "SLURM HPC" },
       { "name": "AWS S3" },
-      { "name": "LaTeX" }
+      { "name": "GNU make", "only": "cv" },
+      { "name": "CMake", "only": "cv" },
+      { "name": "SCons", "only": "cv" },
+      { "name": "zsh/bash", "only": "cv" },
+      { "name": "Vim", "only": "cv" },
+      { "name": "tmux", "only": "cv" },
+      { "name": "VSCode", "only": "cv" },
+      { "name": "LaTeX" },
+      { "name": "HTML", "only": "cv" },
+      { "name": "Markdown", "only": "cv" }
     ]
   },
   {
     "category": "Mathematics",
     "items": [
-      { "name": "Bayesian Statistics" },
+      { "name": "Advanced & Bayesian Statistics" },
       { "name": "Linear Algebra" },
       { "name": "Discrete Math" },
       { "name": "Calculus" }
+    ]
+  },
+  {
+    "category": "Operating Systems",
+    "only": "cv",
+    "items": [
+      { "name": "Linux", "note": "Ubuntu preferred" },
+      { "name": "macOS" },
+      { "name": "Windows" }
     ]
   }
 ]

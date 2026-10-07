@@ -1,0 +1,11 @@
+{
+  "_comment": "Copy to content/private.json (gitignored) to also build a full CV locally with phone + references.",
+  "phone": "+1-000-000-0000",
+  "references": [
+    {
+      "name": "Dr. Example Person",
+      "role": "Principal Investigator",
+      "email": "someone@example.edu"
+    }
+  ]
+}

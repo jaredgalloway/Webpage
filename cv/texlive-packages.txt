@@ -1,0 +1,18 @@
+# TeX Live packages needed to compile the CV in CI (TeX-Live/setup-texlive-action).
+# Derived from the files main.tex actually loads; add here if you \usepackage more.
+scheme-basic
+babel-english
+enumitem
+etoolbox
+fancyhdr
+fontawesome5
+geometry
+hyperref
+l3packages
+marvosym
+multibib
+# preprint provides fullpage.sty; tools provides tabularx + verbatim
+preprint
+titlesec
+tools
+xcolor
