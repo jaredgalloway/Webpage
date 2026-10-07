@@ -12,6 +12,7 @@ CV linked from it.
 | `content/*.json` | **Single source of truth**: profile, experience, projects, skills, education, achievements |
 | `content/publications/{first,supporting}.bib` | BibTeX for the CV's two bibliographies |
 | `content/images/` | Source photos (`profile.photo`, `profile.heroImage`) |
+| `content/drafts.md` | Unused writing (old personal-statement drafts); never rendered |
 | `content/private.json` | **Gitignored.** Phone and references (format: `private.example.json`) |
 | `cv/template.tex` | CV preamble, macros, and section order; `{{name}}` placeholders |
 | `cv/texlive-packages.txt` | TeX Live packages CI installs |

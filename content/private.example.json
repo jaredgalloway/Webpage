@@ -5,7 +5,9 @@
     {
       "name": "Dr. Example Person",
       "role": "Principal Investigator",
-      "email": "someone@example.edu"
+      "email": "someone@example.edu",
+      "url": "https://example.edu/lab",
+      "urlLabel": "Example Lab (optional; not printed)"
     }
   ]
 }

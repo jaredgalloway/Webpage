@@ -21,6 +21,7 @@ content/publications/*.bib ──▶ scripts/cv.js ──▶ dist/Jared_Galloway
 | `content/education.json` | CV | degrees |
 | `content/private.json` | local full CV only | phone + references — **gitignored**, never deployed |
 | `content/achievements.json` | CV | theses, side projects, service |
+| `content/drafts.md` | neither | unused writing (old personal-statement drafts); not rendered |
 | `content/publications/first.bib`, `supporting.bib` | CV | BibTeX — first/co-first and supporting author papers |
 
 **Inline markup** (any text field): `[text](https://url)` link, `*italic*`,
