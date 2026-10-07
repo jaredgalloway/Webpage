@@ -1,0 +1,157 @@
+[
+  {
+    "title": "Bioinformatics Specialist",
+    "organization": "Howard Hughes Medical Institute",
+    "startDate": "2024-01",
+    "endDate": "Present",
+    "location": "Bozeman, MT (Remote)",
+    "details": "Public Health Sciences Division · Matsen Lab",
+    "summary": "Developing novel approaches for jointly modeling deep mutational scanning datasets using JAX. Building Nextflow pipelines for studying affinity maturation in germinal centers, managing sensitive data on HPC and AWS, and producing publication-quality figures.",
+    "highlights": [
+      {
+        "title": "Jointly modeling deep mutational scanning (DMS) datasets",
+        "text": "Developed a novel approach for jointly modeling multiple distinct DMS experimental datasets. The method was validated *in-silico* (using simulated data) as well as *in-vitro* (testing mutations in the lab, directly). I implemented a functional API into a JAX-based python package, [multidms](https://matsengrp.github.io/multidms/) [@Haddox_2023], which is now used in a primary analysis pipeline across multiple labs."
+      },
+      {
+        "title": "Bioinformatics for studying affinity maturation in germinal centers",
+        "text": "Working with wet lab researchers to meet their needs, I created an efficient Nextflow pipeline that leveraged high-performance computing clusters and software containerization to perform over 50K independent data-processing steps and produce more than 140 feature-rich phylogenetic trees. This work has provided the primary data and analysis for an ongoing large, collaborative study across multiple groups."
+      },
+      {
+        "title": "Administrative data management",
+        "text": "Executed best-practice management and storage of sensitive data in various computational environments including HPC file systems and AWS S3 buckets. Additionally, I was responsible for scrubbing sensitive data from repository histories before publication."
+      },
+      {
+        "title": "Visualization/Communication of results",
+        "text": "Visualized data for researchers and produced final figures for publication to communicate patterns in data clearly. Regularly presented results and background of my research projects to a range of audiences including lab meetings, collaborative meetings, and team meetings."
+      }
+    ]
+  },
+  {
+    "title": "Bioinformatics Analyst II",
+    "organization": "Fred Hutchinson Cancer Center",
+    "startDate": "2021-01",
+    "endDate": "2024-01",
+    "location": "Bozeman, MT (Remote)",
+    "details": "Public Health Sciences Division · Matsen Lab",
+    "summary": "Designed algorithms for mutational fitness estimation across 13M+ viral genomes. Built and deployed public Nextstrain pages for genomic surveillance of SARS-CoV-2, Influenza, and Lassa virus. Mentored interns, students, and postdocs in computational methods.",
+    "highlights": [
+      {
+        "title": "Algorithmic design for mutational fitness estimation",
+        "text": "As requested by researchers, I conceptualized and implemented an algorithmic approach into a custom Snakemake pipeline for estimating mutational fitness trajectories (through time) for every possible codon-mutation that may have occurred within a phylogeny (evolutionary history) of more than 13 million empirical viral genomes."
+      },
+      {
+        "title": "Genomic surveillance of viral escape",
+        "text": "Built and deployed custom, public Nextstrain pages for viruses such as [SARS-CoV-2](https://nextstrain.org/groups/dms-phenotype/ncov/Dadonaite-2023-Cell), Influenza, Lassa, and others — each of which provide estimates of viral escape to antibodies of interest. This work has provided analysis tools for various studies and informed the potential effectiveness of these antibodies as therapeutics."
+      },
+      {
+        "title": "Colleague consultation",
+        "text": "Provided various degrees of help and guidance to undergraduate interns, graduate students, postdocs, and other faculty with computational tasks surrounding active research projects and employee onboarding. These tasks include but are not limited to algorithmic implementation, command line interface, HPC clusters, workflow management, machine learning, version control, compute environments, and build systems."
+      }
+    ]
+  },
+  {
+    "title": "Research Associate",
+    "organization": "Fred Hutchinson Cancer Center",
+    "startDate": "2020-03",
+    "endDate": "2020-12",
+    "location": "Seattle, WA",
+    "details": "Paid Internship · Computational Biology · Matsen Lab",
+    "cvPageBreakBefore": true,
+    "summary": "Developed the phippery software suite for PhIP-Seq data analysis, including a Nextflow pipeline, Python API, and Streamlit visualization app. Contributed to global epistasis modeling with PyTorch. Led cross-lab team meetings.",
+    "highlights": [
+      {
+        "title": "PhIP-Seq software and analysis",
+        "text": "Developed a suite of software tools, [phippery](https://matsengrp.github.io/phippery/introduction.html), for analysis of raw Phage ImmunoPrecipitation Sequencing (PhIP-Seq) data that consisted of a python package for modeling and computing enrichment statistics, an interactive application for visualizing results of the processed data, and an end-to-end (raw data → results) Nextflow pipeline for encapsulating the standard analysis workflows in a portable and reproducible manner. In addition, it will inform us of best practices and future experiments carried out in the wet lab. Multiple collaborative publications have used this software to process data and produce results [@Garrett_2022, @Stoddard_2021, @Garrett_2021, @Stoddard_2023, @Willcox_2022, @Itell_2021]."
+      },
+      {
+        "title": "Neural Networks for global epistasis modeling",
+        "text": "Worked with a graduate student to implement a global epistasis modeling software package, [torchdms](https://github.com/matsengrp/torchdms), using the PyTorch library."
+      },
+      {
+        "title": "Team Organization",
+        "text": "Set up and led team meetings to brainstorm, set short-term goals, and present results across multiple labs and studies for various team members."
+      }
+    ]
+  },
+  {
+    "title": "Graduate Teaching Fellow",
+    "organization": "University of Oregon",
+    "startDate": "2019-08",
+    "endDate": "2020-03",
+    "location": "Eugene, OR",
+    "details": "BIO 410/510 · Biology Department · UO Graduate School",
+    "summary": "Taught graduate-level Python/Bash scripting and algorithmic thinking. Built Docker containers and a Jupyter Notebook auto-grading pipeline. Led discussions and graded ~100 assignments per week.",
+    "highlights": [
+      {
+        "title": "Teaching",
+        "text": "Led discussions, taught lessons, and proctored exams for four classroom hours each week for a graduate-level class focused on Python/Bash scripting, Unix file formatting/parsing, and other algorithmic thinking activities."
+      },
+      {
+        "title": "Assignment Design",
+        "text": "Constructed Docker containers and a Jupyter Notebook auto-grade pipeline for students to have a unified environment for Python programming. Hosted office hours and graded ≈ 100 assignments/exams per week with feedback."
+      }
+    ]
+  },
+  {
+    "title": "Scientific Programmer",
+    "organization": "University of Oregon",
+    "startDate": "2018-06",
+    "endDate": "2019-06",
+    "location": "Eugene, OR",
+    "details": "Institute of Ecology and Evolution · Ralph & Kern Co-Lab",
+    "summary": "Applied software engineering best practices to open-source tools including tskit, stdpopsim, and ReLERNN. Evaluated deep learning models for recombination rate estimation. Built Snakemake pipelines for population genetics analyses.",
+    "highlights": [
+      {
+        "title": "Software Engineering",
+        "text": "Leveraged software engineering best practices such as architecture design, version control, and continuous integration for various open-source software projects, including [tskit](https://tskit.dev/), [stdpopsim](https://popsim-consortium.github.io/stdpopsim-docs/stable/index.html), and [ReLERNN](https://github.com/kr-colab/ReLERNN)."
+      },
+      {
+        "title": "Experimentation and model development",
+        "text": "Evaluated the application of simulated data for training recurrent deep learning models (RNNs) to predict recombination rate estimates across the consensus genome of empirical populations. This work provided the analysis pipeline in the resulting publication [@Adrion_2020_relernn]."
+      },
+      {
+        "title": "Analysis of population demography inference tools",
+        "text": "Constructed a snakemake pipeline for published analysis outlining a comparison of population demography inference tools [@Adrion_2020_stdpopsim]."
+      }
+    ]
+  },
+  {
+    "title": "Undergraduate Research Assistant",
+    "organization": "University of Oregon",
+    "startDate": "2017-06",
+    "endDate": "2018-06",
+    "location": "Eugene, OR",
+    "details": "Institute of Ecology and Evolution · Ralph & Kern Co-Lab",
+    "summary": "Implemented tree sequence recording in the SLiM population genetics simulator. Benchmarked large-scale simulations for an undergraduate honors thesis. Developed and analyzed evolutionary models of stickleback fish migration.",
+    "highlights": [
+      {
+        "title": "Algorithmic implementation of tree sequence recording",
+        "text": "Implemented tree sequence recording algorithm into widely used population genetic simulation software, [SLiM](https://messerlab.org/slim/), and contributed to the writing in the resulting publication [@Haller_2019]."
+      },
+      {
+        "title": "Algorithmic benchmarking",
+        "text": "Utilized cluster resources, visualization tools, and more to compare large-scale simulations and benchmark performance across various metrics, including memory allocation and user runtime. This work was written up and formally presented in my [undergraduate honors thesis](https://www.cs.uoregon.edu/Reports/UG-201806-Galloway.pdf) and used to inform ongoing studies."
+      },
+      {
+        "title": "Simulation studies of rapid evolution",
+        "text": "Developed and analyzed large-scale, realistic evolutionary simulation models to study migration patterns involved in the rapid evolution of stickleback fish on the Alaskan coast. I then led the publication of this study [@Galloway_2020]."
+      }
+    ]
+  },
+  {
+    "title": "Discrete Math Course Grader",
+    "organization": "University of Oregon",
+    "startDate": "2016-06",
+    "endDate": "2017-06",
+    "location": "Eugene, OR",
+    "details": "Mathematics Department",
+    "only": "cv",
+    "summary": "Graded weekly discrete math assignments focused on proofs, set theory, and combinatorics.",
+    "highlights": [
+      {
+        "title": "Grading",
+        "text": "Graded and constructed feedback for ≈ 100 weekly assignments focused on proofs, set theory, and combinatorics."
+      }
+    ]
+  }
+]

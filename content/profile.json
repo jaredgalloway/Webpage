@@ -1,0 +1,53 @@
+{
+  "name": "Jared Galloway",
+  "fullName": "Jared G. Galloway",
+  "tagline": "Software Engineer · Computational Biologist",
+  "email": "jaredgalloway07@gmail.com",
+  "location": "Bozeman, MT",
+  "website": "https://jaredgalloway.com/",
+  "photo": "images/me.jpeg",
+  "heroImage": "images/mirror-lake.jpeg",
+  "bio": [
+    "I am an Engineer with a background in Computer & Information Science and a focus on research in the Biological Sciences. I have seven years of hands-on experience conducting various flavors of methods development, implementation, and analysis in an academic research environment.",
+    "In practice, my work has consisted primarily of creating machine learning-based software tools that allow researchers to analyze and interpret complex biological datasets. My research often involves using cutting-edge statistical methods to filter artifacts, normalize/encode data, fit models, and visualize data so that results are scientifically sound and practically useful.",
+    "I take pride in clearly communicating my work and enjoy the discussions that follow."
+  ],
+  "social": [
+    {
+      "platform": "website",
+      "label": "Website",
+      "handle": "jaredgalloway.com",
+      "url": "https://jaredgalloway.com/",
+      "icon": "faGlobe",
+      "only": "cv"
+    },
+    {
+      "platform": "github",
+      "label": "GitHub",
+      "handle": "jaredgalloway",
+      "url": "https://github.com/jaredgalloway",
+      "icon": "faGithub"
+    },
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "handle": "707836116",
+      "url": "https://www.linkedin.com/in/jared-galloway-707836116/",
+      "icon": "faLinkedin"
+    },
+    {
+      "platform": "scholar",
+      "label": "Google Scholar",
+      "handle": "zWo6lFcAAAAJ",
+      "url": "https://scholar.google.com/citations?user=zWo6lFcAAAAJ",
+      "icon": "faGraduationCap"
+    },
+    {
+      "platform": "orcid",
+      "label": "ORCID",
+      "handle": "0000-0001-5838-7840",
+      "url": "https://orcid.org/0000-0001-5838-7840",
+      "icon": "faOrcid"
+    }
+  ]
+}

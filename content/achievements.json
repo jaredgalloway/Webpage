@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Graduate Thesis Project",
+    "text": "Machine learning for identifying synapses."
+  },
+  {
+    "title": "Undergraduate Honors Thesis Project",
+    "text": "Speeding up the Tortoise: a case study in the optimization of forward-moving evolutionary simulations. The manuscript can be found on the [University Arxiv](https://www.cs.uoregon.edu/Reports/UG-201806-Galloway.pdf)."
+  },
+  {
+    "title": "Game Development",
+    "text": "Developed a 3D infinite flyer game, [Squirrel suiter](https://play.google.com/store/apps/details?id=com.Nighthawks.SquirrelSuiter&hl=en_US) for Windows and Android, available on Google Play."
+  },
+  {
+    "title": "Community Service",
+    "text": "Built trail for [Montana Conservation Corps](https://www.mtcorps.org/) and acquired 300+ hours community service."
+  }
+]

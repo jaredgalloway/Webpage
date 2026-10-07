@@ -283,6 +283,20 @@ html {
   text-decoration: none;
 }
 
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.hero__cta--secondary {
+  background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  padding: calc(0.75rem - 2px) calc(2rem - 2px);
+}
+
 /* ── T020: About Section Styles ─────────────────────────────────────── */
 
 .about {

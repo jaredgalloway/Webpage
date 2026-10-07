@@ -1,16 +1,21 @@
 {
   "name": "jared-galloway-portfolio",
   "version": "1.0.0",
-  "description": "Personal portfolio site for Jared Galloway — jaredgalloway.com",
+  "description": "Single source of truth for Jared Galloway’s website (jaredgalloway.com) and CV",
   "private": true,
   "scripts": {
     "build": "node build.js",
-    "validate": "echo 'TODO: validation script'"
+    "build:cv": "node build.js --cv",
+    "build:site": "node build.js --site",
+    "serve": "npx --yes http-server dist -p 8080 -c-1"
   },
   "devDependencies": {
     "sharp": "^0.33.0",
     "html-minifier-terser": "^7.2.0",
     "clean-css": "^5.3.0",
     "terser": "^5.31.0"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

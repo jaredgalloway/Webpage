@@ -1,0 +1,20 @@
+[
+  {
+    "degree": "Master of Science",
+    "field": "Biology",
+    "institution": "University of Oregon",
+    "startDate": "2019-06",
+    "endDate": "2020-12",
+    "location": "Eugene, OR",
+    "details": "Knight Campus · Bioinformatics and Genomics"
+  },
+  {
+    "degree": "Bachelor of Science",
+    "field": "Computer & Information Science",
+    "institution": "University of Oregon",
+    "startDate": "2013-08",
+    "endDate": "2018-07",
+    "location": "Eugene, OR",
+    "details": "Arts & Sciences · Departmental Honors · Minor in Product Design"
+  }
+]

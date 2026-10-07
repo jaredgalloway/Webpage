@@ -69,7 +69,7 @@ git push                # Push to remote
 
 ## Active Technologies
 - HTML5, CSS3, Vanilla JavaScript (ES2020+), Node.js ≥ 18 (build only) + `sharp` (image optimization), `html-minifier-terser`, `clean-css`, `terser` (minification) (001-portfolio-site)
-- JSON files in `data/` — no database (001-portfolio-site)
+- JSON files in `content/` are the single source of truth for BOTH the site and the LaTeX CV (`npm run build` → `dist/` incl. `Jared_Galloway_CV.pdf`); see README.md
 
 ## Recent Changes
 - 001-portfolio-site: Added HTML5, CSS3, Vanilla JavaScript (ES2020+), Node.js ≥ 18 (build only) + `sharp` (image optimization), `html-minifier-terser`, `clean-css`, `terser` (minification)
