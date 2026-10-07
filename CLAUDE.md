@@ -1,4 +1,76 @@
+# CLAUDE.md
 
+Jared Galloway's personal site (**jaredgalloway.com**) and **LaTeX CV**,
+built from one set of content files. Editing anything in `content/` updates
+both. A push to `main` rebuilds and deploys the site with the freshly compiled
+CV linked from it.
+
+## Layout
+
+| Path | Role |
+|------|------|
+| `content/*.json` | **Single source of truth**: profile, experience, projects, skills, education, achievements |
+| `content/publications/{first,supporting}.bib` | BibTeX for the CV's two bibliographies |
+| `content/images/` | Source photos (`profile.photo`, `profile.heroImage`) |
+| `content/private.json` | **Gitignored.** Phone and references (format: `private.example.json`) |
+| `cv/template.tex` | CV preamble, macros, and section order; `{{name}}` placeholders |
+| `cv/texlive-packages.txt` | TeX Live packages CI installs |
+| `site/` | HTML template (`{{name}}` placeholders), CSS, JS, static files |
+| `scripts/content.js` | Loads and validates content; `forTarget()`, `formatMonthYear()` |
+| `scripts/markup.js` | Shared inline markup → HTML / LaTeX, plus the escapers |
+| `scripts/cv.js`, `scripts/site.js` | Renderers/builders for each output |
+| `build.js` | Orchestrator → `dist/` (deployed) and `build/` (local scratch) |
+| `specs/`, `.specify/` | Historical speckit docs from the original site build; not the source of truth |
+
+## Commands
+
+Node ≥ 18, plus `pdflatex`/`bibtex` (MacTeX) for the CV.
+
+```sh
+npm run build        # validate content → CV PDF + site into dist/
+npm run build:cv     # CV only
+npm run build:site   # site only (no TeX needed)
+npm run serve        # preview dist/ at http://localhost:8080
+```
+
+Debug a CV failure using the rendered `build/cv/main.tex` and `main.log`.
+If `content/private.json` exists, the build also writes
+`build/Jared_Galloway_CV_full.pdf`.
+
+## Rules
+
+- **Never put the phone number or reference contact details in tracked files,
+  `dist/`, or the website.** They live only in `content/private.json`. The
+  public CV prints "Available upon request." The repo is public.
+- Edit **wording** in `content/` and **layout** in `cv/template.tex` and `site/`.
+  Content files hold plain text and never raw HTML or LaTeX.
+- Inline markup in any text field: `[text](url)`, `*italic*`, `**bold**`, and
+  `[@BibKey, @Other]` citations (`\cite` on the CV, dropped on the site).
+  Characters like `& % " ≈ → · —` are escaped automatically.
+- Mark an entry, skill category, skill item, or social link with
+  `"only": "cv"` or `"only": "web"` to show it in one output only.
+  `"cvPageBreakBefore": true` on an experience entry forces a CV page break.
+- Experience gives the site `summary` and the CV `highlights`. Projects give the
+  site `summary` and the CV `description`. Dates are `YYYY-MM` or `"Present"`.
+- Placeholders in `cv/template.tex` are strict: an unknown `{{x}}` fails the
+  build, and so does one written inside a comment.
+- Any new `\usepackage` in the CV needs its TeX Live package added to
+  `cv/texlive-packages.txt`, or CI fails.
+- The CV uses `multibib`. bibtex runs on `prim.aux` and `supp.aux`, not on
+  `first`/`supporting`; `scripts/cv.js` handles this.
+- The site's CSP is `'self'`-only. Keep assets local and avoid inline scripts.
+- After a CV change, check that `pdfinfo dist/Jared_Galloway_CV.pdf` still
+  shows a sensible page count (currently 4).
+
+## Deploy
+
+`.github/workflows/deploy.yml` runs on every push to `main`: it installs TeX
+Live, runs `npm run build`, and deploys `dist/` to GitHub Pages
+(CNAME `jaredgalloway.com`). PRs run the build only and upload the CV PDF as an
+artifact. **Pushing to `main` publishes the site.**
+
+The CV used to live in `jgallowa07/Resume-CV`. Don't edit it there; it's
+superseded.
 
 <!-- br-agent-instructions-v1 -->
 
@@ -66,10 +138,3 @@ git push                # Push to remote
 - Always sync before ending session
 
 <!-- end-br-agent-instructions -->
-
-## Active Technologies
-- HTML5, CSS3, Vanilla JavaScript (ES2020+), Node.js ≥ 18 (build only) + `sharp` (image optimization), `html-minifier-terser`, `clean-css`, `terser` (minification) (001-portfolio-site)
-- JSON files in `content/` are the single source of truth for BOTH the site and the LaTeX CV (`npm run build` → `dist/` incl. `Jared_Galloway_CV.pdf`); see README.md
-
-## Recent Changes
-- 001-portfolio-site: Added HTML5, CSS3, Vanilla JavaScript (ES2020+), Node.js ≥ 18 (build only) + `sharp` (image optimization), `html-minifier-terser`, `clean-css`, `terser` (minification)
