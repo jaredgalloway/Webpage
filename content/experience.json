@@ -14,7 +14,7 @@
       },
       {
         "title": "Bioinformatics for studying affinity maturation in germinal centers",
-        "text": "Working with wet lab researchers to meet their needs, I created an efficient Nextflow pipeline that leveraged high-performance computing clusters and software containerization to perform over 50K independent data-processing steps and produce more than 140 feature-rich phylogenetic trees. This work has provided the primary data and analysis for an ongoing large, collaborative study across multiple groups."
+        "text": "Working with wet lab researchers to meet their needs, I created an efficient Nextflow pipeline that leveraged high-performance computing clusters and software containerization to perform over 50K independent data-processing steps and produce more than 140 feature-rich phylogenetic trees. This work provided the primary data and analysis for a large, collaborative study across multiple groups, since published in *Cell* [@DeWitt_2025]."
       },
       {
         "title": "Administrative data management",
