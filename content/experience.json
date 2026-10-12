@@ -3,10 +3,10 @@
     "title": "Bioinformatics Specialist",
     "organization": "Howard Hughes Medical Institute",
     "startDate": "2024-01",
-    "endDate": "Present",
+    "endDate": "2026-08",
     "location": "Bozeman, MT (Remote)",
     "details": "Public Health Sciences Division · Matsen Lab",
-    "summary": "Developing novel approaches for jointly modeling deep mutational scanning datasets using JAX. Building Nextflow pipelines for studying affinity maturation in germinal centers, managing sensitive data on HPC and AWS, and producing publication-quality figures.",
+    "summary": "Developed novel approaches for jointly modeling deep mutational scanning datasets using JAX. Built Nextflow pipelines for studying affinity maturation in germinal centers, managed sensitive data on HPC and AWS, and produced publication-quality figures.",
     "highlights": [
       {
         "title": "Jointly modeling deep mutational scanning (DMS) datasets",
