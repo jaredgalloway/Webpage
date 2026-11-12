@@ -133,12 +133,6 @@ main > section + section,
   color: var(--primary-color);
 }
 
-.cmd-h2::before {
-  content: "$ ";
-  color: var(--secondary-color);
-  font-weight: 400;
-}
-
 /* Hero name and section-page titles share one large size. */
 body.terminal .hero__name,
 body.terminal .page-head__title {
@@ -177,16 +171,6 @@ body.terminal .page-head__title {
 
 .hero__tagline {
   color: var(--secondary-color);
-  margin-bottom: 0.25em;
-}
-
-.hero__stats {
-  color: var(--font-color);
-}
-
-.hero__stats::before {
-  content: "↳ ";
-  color: var(--primary-color);
 }
 
 .hero__actions {
@@ -216,32 +200,6 @@ body.terminal .page-head__title {
   height: 240px;
   object-fit: cover;
   border: 1px solid var(--secondary-color);
-}
-
-/* ── Home: `ls -l ~` site map ───────────────────────────────────────── */
-
-.ls {
-  display: grid;
-  grid-template-columns: max-content max-content 1fr;
-  column-gap: 2ch;
-  row-gap: 0.6em;
-  margin: 0;
-}
-
-.ls > li {
-  display: contents;
-}
-
-.ls > li::after {
-  content: none;
-}
-
-.ls__mode {
-  color: var(--secondary-color);
-}
-
-.ls__name {
-  font-weight: 600;
 }
 
 /* ── Home: contact ──────────────────────────────────────────────────── */
@@ -525,19 +483,6 @@ body.terminal .paper__title {
     padding: 0.5em 0;
   }
 
-  .ls {
-    grid-template-columns: 1fr;
-    row-gap: 0;
-  }
-
-  .ls__mode {
-    display: none;
-  }
-
-  .ls__desc {
-    padding-left: 2ch;
-    margin-bottom: 0.8em;
-  }
 
   .terminal-timeline {
     padding-left: 0;

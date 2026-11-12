@@ -53,17 +53,6 @@ function fill(text, vars) {
   });
 }
 
-// Whole years between the earliest start and the latest end of `roles`.
-function yearsOfExperience(roles) {
-  const months = d => {
-    const [y, m] = (d === 'Present' ? new Date().toISOString().slice(0, 7) : d).split('-').map(Number);
-    return y * 12 + m;
-  };
-  const start = Math.min(...roles.map(r => months(r.startDate)));
-  const end = Math.max(...roles.map(r => months(r.endDate)));
-  return Math.floor((end - start) / 12);
-}
-
 // Authors up to and including Galloway (bolded), then "et al." if more follow.
 function renderAuthors(authors) {
   const me = authors.indexOf('Galloway');
@@ -85,15 +74,13 @@ function pageTitle(cmd, title) {
 
 // ── Home ────────────────────────────────────────────────────────────────
 
-function renderHero(profile, publications, files) {
+function renderHero(profile, files) {
   const bg = imageBase(profile.heroImage);
-  const stats = `${publications.count} publications · ${publications.scholar.citations} citations · h-index ${publications.scholar.hIndex}`;
   const sizes = '(max-width: 60em) 100vw, 60em';
   return `<section class="hero">
       <p class="hero__cmd">$ whoami</p>
       <h1 class="hero__name">${escapeHTML(profile.name)}</h1>
       <p class="hero__tagline">${escapeHTML(profile.tagline)}</p>
-      <p class="hero__stats">${escapeHTML(stats)}</p>
       <div class="hero__actions">
         <a href="/${files.resume}" class="btn btn-primary" target="_blank" rel="noopener">Résumé (PDF)</a>
         <a href="/${files.cv}" class="btn btn-primary btn-ghost" target="_blank" rel="noopener">Full CV (PDF)</a>
@@ -124,34 +111,6 @@ function renderAbout(profile) {
     </section>`;
 }
 
-// The home page's map of the site, styled as `ls -l ~`.
-function renderExplore(content, files) {
-  const { profile, publications, experience } = content;
-  const vars = {
-    publications: publications.count,
-    citations: publications.scholar.citations,
-    years: yearsOfExperience(forTarget(experience, 'web'))
-  };
-  const dir = (href, name, desc) => ({ mode: 'drwxr-xr-x', href, name, desc, external: false });
-  const file = (href, name, desc) => ({ mode: '-rw-r--r--', href, name, desc, external: true });
-  const rows = [
-    ...SECTIONS.map(s => dir(`/${s.id}/`, `${s.id}/`, profile.explore[s.id])),
-    file(`/${files.resume}`, 'resume.pdf', profile.explore.resume),
-    file(`/${files.cv}`, 'cv.pdf', profile.explore.cv)
-  ].map(r => `<li class="ls__row">
-          <span class="ls__mode" aria-hidden="true">${r.mode}</span>
-          <a class="ls__name" href="${r.href}"${r.external ? ' target="_blank" rel="noopener"' : ''}>${escapeHTML(r.name)}</a>
-          <span class="ls__desc">${toHTML(fill(r.desc, vars))}</span>
-        </li>`).join('\n        ');
-
-  return `<section id="explore" class="explore">
-      <h2 class="cmd-h2">ls -l ~</h2>
-      <ul class="ls">
-        ${rows}
-      </ul>
-    </section>`;
-}
-
 function renderContact(profile, files) {
   const links = forTarget(profile.social, 'web').map(s =>
     `<a href="${escapeHTML(s.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost btn-small">${escapeHTML(s.label)}</a>`
@@ -169,8 +128,7 @@ function renderContact(profile, files) {
 
 function renderHome(content, files) {
   return [
-    renderHero(content.profile, content.publications, files),
-    renderExplore(content, files),
+    renderHero(content.profile, files),
     renderAbout(content.profile),
     renderContact(content.profile, files)
   ].join('\n    ');

@@ -57,8 +57,7 @@ function requireDate(value, field, label, file, { allowPresent = false } = {}) {
 
 function validateProfile(profile) {
   const file = 'profile.json';
-  requireFields(profile, ['name', 'fullName', 'tagline', 'summary', 'email', 'website', 'photo', 'heroImage', 'explore'], file);
-  requireFields(profile.explore, ['research', 'experience', 'skills', 'resume', 'cv'], file);
+  requireFields(profile, ['name', 'fullName', 'tagline', 'summary', 'email', 'website', 'photo', 'heroImage'], file);
   requireURL(profile.website, 'website', file);
   requireArray(profile.bio, '"bio"', file);
   requireArray(profile.social, '"social"', file);
@@ -142,6 +141,8 @@ function loadPrivate() {
   return priv;
 }
 
+const MONTH_KEYS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
 // Resolves content/publications/selected.json against the .bib files (and
 // projects.json for code/docs links) into display-ready research cards.
 function loadPublications(projects) {
@@ -187,6 +188,7 @@ function loadPublications(projects) {
     }
 
     return {
+      sortKey: Number(e.year) * 12 + Math.max(0, MONTH_KEYS.indexOf(String(e.month || '').slice(0, 3).toLowerCase())),
       key: p.key, label: p.label, role: p.role, summary: p.summary,
       abstract: p.abstract || null, figure: p.figure ? { ...p.figure } : null,
       title: e.title, authors: authorList(e.author),
@@ -194,6 +196,7 @@ function loadPublications(projects) {
     };
   });
 
+  papers.sort((a, b) => b.sortKey - a.sortKey);
   return { intro: selected.intro, outro: selected.outro, scholar: selected.scholar,
     count: Object.keys(bib).length, papers };
 }

@@ -5,8 +5,8 @@ Jared Galloway's personal site (**jaredgalloway.com**), **LaTeX CV**, and
 `content/` updates all three. A push to `main` rebuilds and deploys the site
 with the freshly compiled PDFs linked from it.
 
-The site has four pages: home (`/`: bio, an `ls -l ~` map of the site, contact),
-`/research/` (selected-paper cards), `/experience/` (every role in full, plus
+The site has four pages: home (`/`: bio and contact),
+`/research/` (selected-paper cards, newest first by bib year/month), `/experience/` (every role in full, plus
 education and achievements), and `/skills/` (the full CV skill list with a
 summary per category).
 
@@ -65,9 +65,8 @@ If `content/private.json` exists, the build also writes
   its `summary`, one bullet per sentence (roles after the third get only the
   first sentence). Projects only feed the CV's software section and the code/docs
   links on research cards. Dates are `YYYY-MM` or `"Present"`.
-- Text in `profile.explore` and `selected.json` `intro`/`outro` may use
-  `{publications}`, `{citations}`, `{years}`, `{hIndex}`, `{scholar}`, `{cv}`,
-  `{selected}` tokens; the publication count comes from the .bib files.
+- Text in `selected.json` `intro`/`outro` may use `{publications}`,
+  `{citations}`, `{hIndex}`, `{scholar}`, `{cv}`, `{selected}` tokens; the publication count comes from the .bib files.
 - Write links to other site pages as absolute `https://jaredgalloway.com/...`
   URLs so they work in the PDFs; the site build makes them relative.
 - Placeholders in `cv/template.tex` are strict: an unknown `{{x}}` fails the
