@@ -111,9 +111,43 @@ function renderProjects(projects) {
     </section>`;
 }
 
+// "2024-01" → "Jan 2024"; "Present" passes through.
+function shortDate(value) {
+  if (value === 'Present') return value;
+  const [year, month] = value.split('-');
+  return `${SHORT_MONTHS[Number(month) - 1]} ${year}`;
+}
+
+const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// Authors up to and including Galloway (bolded), then "et al." if more follow.
+function renderAuthors(authors) {
+  const me = authors.indexOf('Galloway');
+  const shown = me === -1 ? authors.slice(0, 3) : authors.slice(0, me + 1);
+  const html = shown.map(a => a === 'Galloway' ? `<strong>${escapeHTML(a)}</strong>` : escapeHTML(a));
+  return html.join(', ') + (authors.length > shown.length ? ', et al.' : '');
+}
+
+function renderPublications(publications) {
+  const items = publications.papers.map(p => `<li class="pub">
+          <a href="${escapeHTML(p.url)}" target="_blank" rel="noopener noreferrer" class="pub__title">${escapeHTML(p.title)}</a>
+          <span class="pub__meta">${renderAuthors(p.authors)} · <em>${escapeHTML(p.venue)}</em> ${escapeHTML(p.year)}</span>
+${p.note ? `
+          <span class="pub__note">${toHTML(p.note)}</span>` : ''}
+        </li>`).join('\n        ');
+
+  return `<section id="publications" class="publications">
+      <h2>Publications</h2>
+      <p>${toHTML(publications.intro)}</p>
+      <ul class="pubs">
+        ${items}
+      </ul>
+    </section>`;
+}
+
 function renderExperience(experience) {
   const entries = forTarget(experience, 'web').map(e => {
-    const dateRange = `${e.startDate} – ${e.endDate}`;
+    const dateRange = `${shortDate(e.startDate)} – ${shortDate(e.endDate)}`;
     return `<div class="terminal-card">
           <header><h3 class="timeline__title">${escapeHTML(e.title)}</h3></header>
           <div>
@@ -180,10 +214,10 @@ function renderSEO(profile) {
 
 function renderTemplate(content, dist, cvFile) {
   let template = fs.readFileSync(path.join(SRC, 'template.html'), 'utf8');
-  const { profile, skills, projects, experience } = content;
+  const { profile, skills, projects, experience, publications } = content;
   const seo = renderSEO(profile);
-  const navLinks = ['About', 'Skills', 'Projects', 'Experience', 'Contact']
-    .map(s => `<li><a href="#${s.toLowerCase()}" class="menu-item">${s.toLowerCase()}</a></li>`)
+  const navLinks = ['About', 'Skills', 'Projects', 'Publications', 'Experience', 'Contact']
+    .map(s => `<li><a href="#${s.toLowerCase()}" class="menu-item">${s === 'Publications' ? 'papers' : s.toLowerCase()}</a></li>`)
     .concat(`<li><a href="${cvFile}" class="menu-item" target="_blank" rel="noopener">cv.pdf</a></li>`)
     .join('\n              ');
 
@@ -196,6 +230,7 @@ function renderTemplate(content, dist, cvFile) {
     .replace('{{about}}', renderAbout(profile))
     .replace('{{skills}}', renderSkills(skills))
     .replace('{{projects}}', renderProjects(projects))
+    .replace('{{publications}}', renderPublications(publications))
     .replace('{{experience}}', renderExperience(experience))
     .replace('{{contact}}', renderContact(profile, cvFile))
     .replace('{{footer}}', `&copy; ${new Date().getFullYear()} ${escapeHTML(profile.name)}`)

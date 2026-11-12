@@ -1,0 +1,11 @@
+{
+  "intro": "1,800+ citations and an h-index of 17 on [Google Scholar](https://scholar.google.com/citations?user=zWo6lFcAAAAJ). Selected machine learning and statistical modeling work:",
+  "papers": [
+    { "key": "Ralph_2026" },
+    { "key": "DeWitt_2025", "note": "Built the Nextflow pipeline that produced the study's primary data" },
+    { "key": "Bakis_2025", "url": "https://arxiv.org/abs/2508.09519" },
+    { "key": "Haddox_2023", "note": "multidms: a joint, sparsity-regularized model across deep mutational scans" },
+    { "key": "Fourment_2023" },
+    { "key": "Adrion_2020_relernn", "note": "ReLERNN: recurrent neural networks trained on simulated genomes" }
+  ]
+}

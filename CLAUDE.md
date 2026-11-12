@@ -11,6 +11,7 @@ CV linked from it.
 |------|------|
 | `content/*.json` | **Single source of truth**: profile, experience, projects, skills, education, achievements |
 | `content/publications/{first,supporting}.bib` | BibTeX for the CV's two bibliographies |
+| `content/publications/selected.json` | Bib keys (+ optional note/url) for the site's Publications section; citation stats live in its `intro` |
 | `content/images/` | Source photos (`profile.photo`, `profile.heroImage`) |
 | `content/drafts.md` | Unused writing (old personal-statement drafts); never rendered |
 | `content/private.json` | **Gitignored.** Phone and references (format: `private.example.json`) |
@@ -19,6 +20,7 @@ CV linked from it.
 | `site/` | HTML template (`{{name}}` placeholders), CSS, JS, static files |
 | `scripts/content.js` | Loads and validates content; `forTarget()`, `formatMonthYear()` |
 | `scripts/markup.js` | Shared inline markup → HTML / LaTeX, plus the escapers |
+| `scripts/bib.js` | Minimal BibTeX reader for the site (the CV uses real bibtex) |
 | `scripts/cv.js`, `scripts/site.js` | Renderers/builders for each output |
 | `build.js` | Orchestrator → `dist/` (deployed) and `build/` (local scratch) |
 | `specs/`, `.specify/` | Historical speckit docs from the original site build; not the source of truth |

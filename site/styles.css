@@ -44,7 +44,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6rem;
   background-color: var(--background-color);
 }
 
@@ -373,4 +373,37 @@ body.terminal .hero__name {
   .terminal-card {
     border: 1px solid ButtonText;
   }
+}
+
+/* ── Publications ───────────────────────────────────────────────────── */
+
+.pubs {
+  margin: 0;
+}
+
+.pub {
+  margin-bottom: calc(var(--global-space) * 1.5);
+}
+
+.pub__title,
+.pub__meta,
+.pub__note {
+  display: block;
+}
+
+.pub__meta {
+  color: var(--secondary-color);
+}
+
+.pub__meta em {
+  color: inherit;
+}
+
+.pub__note {
+  color: var(--font-color);
+}
+
+.pub__note::before {
+  content: "↳ ";
+  color: var(--primary-color);
 }

@@ -4,6 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { parseBib, authorList } = require('./bib');
 
 const ROOT = path.join(__dirname, '..');
 const CONTENT = path.join(ROOT, 'content');
@@ -140,6 +141,31 @@ function loadPrivate() {
   return priv;
 }
 
+// Resolves content/publications/selected.json against the .bib files into
+// display-ready records for the website.
+function loadPublications() {
+  const file = 'publications/selected.json';
+  const selected = readJSON(file);
+  requireField(selected, 'intro', file);
+  requireArray(selected.papers, '"papers"', file);
+  const bib = {};
+  for (const name of ['first.bib', 'supporting.bib']) {
+    Object.assign(bib, parseBib(fs.readFileSync(path.join(CONTENT, 'publications', name), 'utf8')));
+  }
+  const papers = selected.papers.map(p => {
+    requireField(p, 'key', file);
+    const e = bib[p.key];
+    if (!e) throw new Error(`content/${file}: no BibTeX entry "${p.key}"`);
+    requireFields(e, ['title', 'author', 'journal', 'year'], `publications/*.bib (${p.key})`);
+    const url = p.url || (e.doi ? `https://doi.org/${e.doi}` : null);
+    if (!url) throw new Error(`content/${file}: "${p.key}" needs a DOI in the .bib or a "url"`);
+    requireURL(url, 'url', file);
+    return { key: p.key, note: p.note, title: e.title, authors: authorList(e.author),
+      venue: e.journal.replace(/ preprint arXiv:.*/, ''), year: e.year, url };
+  });
+  return { intro: selected.intro, papers };
+}
+
 function loadContent() {
   const content = {
     profile: readJSON('profile.json'),
@@ -148,6 +174,7 @@ function loadContent() {
     experience: readJSON('experience.json'),
     education: readJSON('education.json'),
     achievements: readJSON('achievements.json'),
+    publications: loadPublications(),
     private: loadPrivate()
   };
   validateProfile(content.profile);

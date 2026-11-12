@@ -1,7 +1,7 @@
 {
   "name": "Jared Galloway",
   "fullName": "Jared G. Galloway",
-  "tagline": "Machine Learning & Scientific Software Engineer",
+  "tagline": "ML Scientist & Engineer",
   "email": "jaredgalloway07@gmail.com",
   "location": "Bozeman, MT",
   "website": "https://jaredgalloway.com/",
@@ -9,8 +9,8 @@
   "heroImage": "images/mirror-lake.jpeg",
   "bio": [
     "I build machine learning models and the software that puts them to work on noisy, high-dimensional biological data. I hold a B.S. in Computer & Information Science and an M.S. in Biology, and have spent nine years developing methods in research groups at HHMI, Fred Hutch, and the University of Oregon.",
-    "My work covers the whole modeling lifecycle: cleaning and encoding data; designing and fitting models in JAX, PyTorch, and TensorFlow; validating them on simulated and experimental data; and shipping them as documented open-source packages and pipelines that other labs use in their primary analyses.",
-    "Examples include [multidms](https://github.com/matsengrp/multidms), a JAX package for jointly modeling deep mutational scanning experiments; [ReLERNN](https://github.com/kr-colab/ReLERNN), a recurrent neural network for estimating genome-wide recombination rates; and Nextflow and Snakemake pipelines that run tens of thousands of jobs on HPC clusters and AWS.",
+    "I work across the whole modeling lifecycle: encoding data, fitting models in JAX, PyTorch, and TensorFlow, validating on simulated and experimental data, and shipping open-source packages that other labs use in their primary analyses.",
+    "My ML work includes [ReLERNN](https://github.com/kr-colab/ReLERNN), an RNN for recombination-rate estimation (180+ citations); [multidms](https://github.com/matsengrp/multidms), a JAX model of deep mutational scans; and research on simulation-based deep learning and Bayesian inference, run at scale with Nextflow and Snakemake on HPC and AWS.",
     "I left the Matsen Lab in August 2026 and am looking for my next role in applied machine learning. I explain technical results clearly to collaborators of every background."
   ],
   "social": [
