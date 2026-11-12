@@ -10,7 +10,7 @@
   "bio": [
     "I build machine learning models and the software that puts them to work on noisy, high-dimensional biological data. I hold a B.S. in Computer & Information Science and an M.S. in Biology, and have spent nine years developing methods in research groups at HHMI, Fred Hutch, and the University of Oregon.",
     "I work across the whole modeling lifecycle: encoding data, fitting models in JAX, PyTorch, and TensorFlow, validating on simulated and experimental data, and shipping open-source packages that other labs use in their primary analyses.",
-    "My work includes [ReLERNN](https://github.com/kr-colab/ReLERNN), an RNN for recombination-rate estimation (180+ citations); [multidms](https://github.com/matsengrp/multidms), a JAX model of deep mutational scans; and [phippery](https://github.com/matsengrp/phippery), a PhIP-Seq data-processing suite, plus pipelines run at scale with Nextflow and Snakemake on HPC and AWS.",
+    "My work includes [ReLERNN](https://github.com/kr-colab/ReLERNN), simulation-based deep learning for recombination-rate estimation (180+ citations); [multidms](https://github.com/matsengrp/multidms), a JAX model of deep mutational scans; and [phippery](https://github.com/matsengrp/phippery), a PhIP-Seq data-processing suite, plus pipelines run at scale with Nextflow and Snakemake on HPC and AWS.",
     "I left the Matsen Lab in August 2026 and am looking for my next role in applied machine learning. I explain technical results clearly to collaborators of every background."
   ],
   "social": [

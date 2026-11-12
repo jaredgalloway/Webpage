@@ -6,6 +6,6 @@
     { "key": "Galloway_2023", "note": "First author: phippery, a PhIP-Seq analysis suite (pipeline, Python API, and app)" },
     { "key": "Garrett_2022", "note": "PhIP-Seq data processed and analyzed with phippery" },
     { "key": "Stoddard_2021", "note": "PhIP-Seq data processed and analyzed with phippery" },
-    { "key": "Adrion_2020_relernn", "note": "ReLERNN: recurrent neural networks trained on simulated genomes" }
+    { "key": "Adrion_2020_relernn", "note": "ReLERNN: simulation-based deep learning, with RNNs trained on simulated genomes" }
   ]
 }
