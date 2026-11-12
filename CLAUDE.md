@@ -60,6 +60,9 @@ If `content/private.json` exists, the build also writes
 - The CV uses `multibib`. bibtex runs on `prim.aux` and `supp.aux`, not on
   `first`/`supporting`; `scripts/cv.js` handles this.
 - The site's CSP is `'self'`-only. Keep assets local and avoid inline scripts.
+- The site is styled with [terminal.css](https://terminalcss.xyz) (npm devDependency).
+  The build prepends `node_modules/terminal.css/dist/terminal.css` to
+  `site/styles.css`, which holds only overrides and the dark/light palettes.
 - After a CV change, check that `pdfinfo dist/Jared_Galloway_CV.pdf` still
   shows a sensible page count (currently 4).
 

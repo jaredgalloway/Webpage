@@ -3,12 +3,18 @@
 
   // ── T040: Theme Toggle ──────────────────────────────────────────────
 
+  function readTheme() {
+    try { return sessionStorage.getItem('theme'); } catch (e) { return null; }
+  }
+
+  function saveTheme(theme) {
+    try { sessionStorage.setItem('theme', theme); } catch (e) { /* storage blocked */ }
+  }
+
   function initTheme() {
-    var saved = sessionStorage.getItem('theme');
+    var saved = readTheme();
     if (saved) {
       document.documentElement.setAttribute('data-theme', saved);
-    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      document.documentElement.setAttribute('data-theme', 'light');
     }
     updateThemeLabel();
   }
@@ -26,63 +32,8 @@
     var current = document.documentElement.getAttribute('data-theme');
     var next = current === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', next);
-    sessionStorage.setItem('theme', next);
+    saveTheme(next);
     updateThemeLabel();
-  }
-
-  // ── T039: Hamburger Menu ────────────────────────────────────────────
-
-  function initHamburger() {
-    var hamburger = document.getElementById('hamburger');
-    var menu = document.getElementById('nav-menu');
-    var closeBtn = menu ? menu.querySelector('.nav__menu-close') : null;
-    var menuLinks = menu ? menu.querySelectorAll('.nav__link') : [];
-
-    if (!hamburger || !menu) return;
-
-    function openMenu() {
-      menu.hidden = false;
-      hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-      if (closeBtn) closeBtn.focus();
-    }
-
-    function closeMenu() {
-      menu.hidden = true;
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-      hamburger.focus();
-    }
-
-    hamburger.addEventListener('click', function () {
-      var expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      if (expanded) closeMenu(); else openMenu();
-    });
-
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
-    for (var i = 0; i < menuLinks.length; i++) {
-      menuLinks[i].addEventListener('click', closeMenu);
-    }
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !menu.hidden) closeMenu();
-    });
-
-    // Trap focus within open menu
-    menu.addEventListener('keydown', function (e) {
-      if (e.key !== 'Tab' || menu.hidden) return;
-      var focusable = menu.querySelectorAll('a, button');
-      var first = focusable[0];
-      var last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    });
   }
 
   // ── T043: Scroll Animations ─────────────────────────────────────────
@@ -134,7 +85,6 @@
     var themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
 
-    initHamburger();
     initScrollAnimations();
     initEmailObfuscation();
   });

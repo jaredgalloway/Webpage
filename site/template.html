@@ -12,34 +12,26 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script src="analytics.js"></script>
 </head>
-<body>
+<body class="terminal">
     <a href="#main" class="skip-link">Skip to content</a>
 
-    <nav class="nav" aria-label="Main navigation">
-      <div class="nav__inner">
-        <span class="nav__brand">JG</span>
-        <div class="nav__links" id="nav-links">
-          {{nav_links}}
+    <div class="site-header">
+      <div class="container">
+        <div class="terminal-nav">
+          <header class="terminal-logo">
+            <div class="logo terminal-prompt"><a href="#hero" class="no-style">{{brand}}</a></div>
+          </header>
+          <nav class="terminal-menu" aria-label="Main navigation">
+            <ul>
+              {{nav_links}}
+              <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode"><span class="theme-toggle__label"></span></button></li>
+            </ul>
+          </nav>
         </div>
-        <button class="nav__hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
-          <span class="nav__hamburger-line"></span>
-          <span class="nav__hamburger-line"></span>
-          <span class="nav__hamburger-line"></span>
-        </button>
-        <button class="nav__theme-toggle" id="theme-toggle" aria-label="Switch to light mode">
-          <span class="nav__theme-icon"></span>
-        </button>
-      </div>
-    </nav>
-
-    <div class="nav__menu-overlay" id="nav-menu" role="dialog" aria-label="Navigation menu" hidden>
-      <div class="nav__menu-inner">
-        {{nav_links}}
-        <button class="nav__menu-close" aria-label="Close navigation menu">&times;</button>
       </div>
     </div>
 
-    <main id="main">
+    <main id="main" class="container">
       {{hero}}
       {{about}}
       {{skills}}
@@ -48,7 +40,8 @@
       {{contact}}
     </main>
 
-    <footer class="footer">
+    <footer class="footer container">
+      <hr>
       <p>{{footer}}</p>
     </footer>
 
