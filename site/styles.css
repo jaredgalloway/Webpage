@@ -87,7 +87,8 @@ img {
   color: var(--secondary-color);
   background: none;
   border: 1px solid var(--secondary-color);
-  padding: 0 0.5em;
+  padding: 0.25em 0.75em;
+  min-height: 32px;
   cursor: pointer;
 }
 
@@ -97,11 +98,11 @@ img {
 }
 
 .theme-toggle__label::after {
-  content: "[light]";
+  content: "☀️ light";
 }
 
 [data-theme="light"] .theme-toggle__label::after {
-  content: "[dark]";
+  content: "🌙 dark";
 }
 
 /* ── Sections ───────────────────────────────────────────────────────── */
