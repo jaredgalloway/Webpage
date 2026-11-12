@@ -1,5 +1,25 @@
 [
   {
+    "category": "Machine Learning",
+    "items": [
+      { "name": "JAX" },
+      { "name": "PyTorch" },
+      { "name": "TensorFlow/Keras" },
+      { "name": "Scikit-learn" }
+    ]
+  },
+  {
+    "category": "Modeling & Statistics",
+    "items": [
+      { "name": "Neural networks (RNNs)" },
+      { "name": "Regularized / sparse regression" },
+      { "name": "Global epistasis models" },
+      { "name": "Bayesian statistics" },
+      { "name": "Simulation-based validation" },
+      { "name": "Linear algebra" }
+    ]
+  },
+  {
     "category": "Languages",
     "items": [
       { "name": "Python", "note": "preferred" },
@@ -11,12 +31,8 @@
     ]
   },
   {
-    "category": "ML & Data Science",
+    "category": "Data",
     "items": [
-      { "name": "JAX" },
-      { "name": "TensorFlow/Keras" },
-      { "name": "PyTorch" },
-      { "name": "Scikit-learn" },
       { "name": "Pandas" },
       { "name": "Polars" },
       { "name": "NumPy" },
@@ -61,9 +77,8 @@
   },
   {
     "category": "Mathematics",
+    "only": "cv",
     "items": [
-      { "name": "Advanced & Bayesian Statistics" },
-      { "name": "Linear Algebra" },
       { "name": "Discrete Math" },
       { "name": "Calculus" }
     ]

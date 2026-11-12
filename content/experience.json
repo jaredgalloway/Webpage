@@ -6,7 +6,7 @@
     "endDate": "2026-08",
     "location": "Bozeman, MT (Remote)",
     "details": "Public Health Sciences Division · Matsen Lab",
-    "summary": "Developed novel approaches for jointly modeling deep mutational scanning datasets using JAX. Built Nextflow pipelines for studying affinity maturation in germinal centers, managed sensitive data on HPC and AWS, and produced publication-quality figures.",
+    "summary": "Designed and built multidms, a JAX model that jointly fits multiple deep mutational scanning datasets; validated it on simulated and lab data, and it now runs in primary analysis pipelines across multiple labs. Built a Nextflow pipeline that ran 50K+ HPC jobs to produce the primary data for a study published in *Cell*.",
     "highlights": [
       {
         "title": "Jointly modeling deep mutational scanning (DMS) datasets",
@@ -33,11 +33,11 @@
     "endDate": "2024-01",
     "location": "Bozeman, MT (Remote)",
     "details": "Public Health Sciences Division · Matsen Lab",
-    "summary": "Designed algorithms for mutational fitness estimation across 13M+ viral genomes. Built and deployed public Nextstrain pages for genomic surveillance of SARS-CoV-2, Influenza, and Lassa virus. Mentored interns, students, and postdocs in computational methods.",
+    "summary": "Designed an algorithm that estimates fitness over time for every codon mutation across a phylogeny of 13M+ viral genomes. Built and deployed public Nextstrain views of antibody escape for SARS-CoV-2, influenza, and Lassa virus. Mentored interns, students, and postdocs in ML and computational methods.",
     "highlights": [
       {
         "title": "Algorithmic design for mutational fitness estimation",
-        "text": "As requested by researchers, I conceptualized and implemented an algorithmic approach into a custom Snakemake pipeline for estimating mutational fitness trajectories (through time) for every possible codon-mutation that may have occurred within a phylogeny (evolutionary history) of more than 13 million empirical viral genomes."
+        "text": "Designed and implemented an algorithm, packaged as a Snakemake pipeline, that estimates fitness trajectories over time for every possible codon mutation across a phylogeny (evolutionary history) of more than 13 million viral genomes."
       },
       {
         "title": "Genomic surveillance of viral escape",
@@ -45,7 +45,7 @@
       },
       {
         "title": "Colleague consultation",
-        "text": "Provided various degrees of help and guidance to undergraduate interns, graduate students, postdocs, and other faculty with computational tasks surrounding active research projects and employee onboarding. These tasks include but are not limited to algorithmic implementation, command line interface, HPC clusters, workflow management, machine learning, version control, compute environments, and build systems."
+        "text": "Mentored undergraduate interns, graduate students, and postdocs, and onboarded new staff, on machine learning, algorithm implementation, HPC clusters, workflow management, version control, compute environments, and build systems."
       }
     ]
   },
@@ -57,15 +57,15 @@
     "location": "Seattle, WA",
     "details": "Paid Internship · Computational Biology · Matsen Lab",
     "cvPageBreakBefore": true,
-    "summary": "Developed the phippery software suite for PhIP-Seq data analysis, including a Nextflow pipeline, Python API, and Streamlit visualization app. Contributed to global epistasis modeling with PyTorch. Led cross-lab team meetings.",
+    "summary": "Built phippery, a PhIP-Seq analysis suite (Nextflow pipeline, Python API for normalization and enrichment statistics, Streamlit app) used in six collaborative publications. Co-developed torchdms, a PyTorch package for neural-network global epistasis models. Led cross-lab team meetings.",
     "highlights": [
       {
         "title": "PhIP-Seq software and analysis",
-        "text": "Developed a suite of software tools, [phippery](https://matsengrp.github.io/phippery/introduction.html), for analysis of raw Phage ImmunoPrecipitation Sequencing (PhIP-Seq) data that consisted of a python package for modeling and computing enrichment statistics, an interactive application for visualizing results of the processed data, and an end-to-end (raw data → results) Nextflow pipeline for encapsulating the standard analysis workflows in a portable and reproducible manner. In addition, it will inform us of best practices and future experiments carried out in the wet lab. Multiple collaborative publications have used this software to process data and produce results [@Garrett_2022, @Stoddard_2021, @Garrett_2021, @Stoddard_2023, @Willcox_2022, @Itell_2021]."
+        "text": "Developed a suite of software tools, [phippery](https://matsengrp.github.io/phippery/introduction.html), for analysis of raw Phage ImmunoPrecipitation Sequencing (PhIP-Seq) data that consisted of a python package for modeling and computing enrichment statistics, an interactive application for visualizing results of the processed data, and an end-to-end (raw data → results) Nextflow pipeline for encapsulating the standard analysis workflows in a portable and reproducible manner. Multiple collaborative publications have used this software to process data and produce results [@Garrett_2022, @Stoddard_2021, @Garrett_2021, @Stoddard_2023, @Willcox_2022, @Itell_2021]."
       },
       {
         "title": "Neural Networks for global epistasis modeling",
-        "text": "Worked with a graduate student to implement a global epistasis modeling software package, [torchdms](https://github.com/matsengrp/torchdms), using the PyTorch library."
+        "text": "Co-developed [torchdms](https://github.com/matsengrp/torchdms) with a graduate student: a PyTorch package that fits neural-network global epistasis models to deep mutational scanning data."
       },
       {
         "title": "Team Organization",
@@ -99,7 +99,7 @@
     "endDate": "2019-06",
     "location": "Eugene, OR",
     "details": "Institute of Ecology and Evolution · Ralph & Kern Co-Lab",
-    "summary": "Applied software engineering best practices to open-source tools including tskit, stdpopsim, and ReLERNN. Evaluated deep learning models for recombination rate estimation. Built Snakemake pipelines for population genetics analyses.",
+    "summary": "Trained and evaluated recurrent neural networks on simulated genomes to estimate recombination rates (ReLERNN). Brought software engineering practice (architecture, version control, CI) to open-source tools including tskit and stdpopsim, and built Snakemake pipelines for published analyses.",
     "highlights": [
       {
         "title": "Software Engineering",
@@ -107,7 +107,7 @@
       },
       {
         "title": "Experimentation and model development",
-        "text": "Evaluated the application of simulated data for training recurrent deep learning models (RNNs) to predict recombination rate estimates across the consensus genome of empirical populations. This work provided the analysis pipeline in the resulting publication [@Adrion_2020_relernn]."
+        "text": "Trained recurrent neural networks (RNNs) on simulated data to predict recombination rates across the genomes of real populations, and evaluated how well they transfer. This work provided the analysis pipeline for the resulting publication [@Adrion_2020_relernn]."
       },
       {
         "title": "Analysis of population demography inference tools",
@@ -122,7 +122,7 @@
     "endDate": "2018-06",
     "location": "Eugene, OR",
     "details": "Institute of Ecology and Evolution · Ralph & Kern Co-Lab",
-    "summary": "Implemented tree sequence recording in the SLiM population genetics simulator. Benchmarked large-scale simulations for an undergraduate honors thesis. Developed and analyzed evolutionary models of stickleback fish migration.",
+    "summary": "Implemented tree-sequence recording in the SLiM population genetics simulator and benchmarked its speed and memory use for an honors thesis. Led a published simulation study of rapid evolution in stickleback fish.",
     "highlights": [
       {
         "title": "Algorithmic implementation of tree sequence recording",

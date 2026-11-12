@@ -1,17 +1,17 @@
 {
   "name": "Jared Galloway",
   "fullName": "Jared G. Galloway",
-  "tagline": "Software Engineer · Computational Biologist",
+  "tagline": "Machine Learning & Scientific Software Engineer",
   "email": "jaredgalloway07@gmail.com",
   "location": "Bozeman, MT",
   "website": "https://jaredgalloway.com/",
   "photo": "images/me.jpeg",
   "heroImage": "images/mirror-lake.jpeg",
   "bio": [
-    "I am an Engineer with a background in Computer & Information Science and a focus on research in the Biological Sciences. I have nine years of hands-on experience conducting various flavors of methods development, implementation, and analysis in an academic research environment.",
-    "In practice, my work has consisted primarily of creating machine learning-based software tools that allow researchers to analyze and interpret complex biological datasets. My research often involves using cutting-edge statistical methods to filter artifacts, normalize/encode data, fit models, and visualize data so that results are scientifically sound and practically useful.",
-    "I finished my position with the Matsen Lab at Fred Hutch in August 2026. I am currently taking some time to work on personal projects and professional development.",
-    "I take pride in clearly communicating my work and enjoy the discussions that follow."
+    "I build machine learning models and the software that puts them to work on noisy, high-dimensional biological data. I hold a B.S. in Computer & Information Science and an M.S. in Biology, and have spent nine years developing methods in research groups at HHMI, Fred Hutch, and the University of Oregon.",
+    "My work covers the whole modeling lifecycle: cleaning and encoding data; designing and fitting models in JAX, PyTorch, and TensorFlow; validating them on simulated and experimental data; and shipping them as documented open-source packages and pipelines that other labs use in their primary analyses.",
+    "Examples include [multidms](https://github.com/matsengrp/multidms), a JAX package for jointly modeling deep mutational scanning experiments; [ReLERNN](https://github.com/kr-colab/ReLERNN), a recurrent neural network for estimating genome-wide recombination rates; and Nextflow and Snakemake pipelines that run tens of thousands of jobs on HPC clusters and AWS.",
+    "I left the Matsen Lab in August 2026 and am looking for my next role in applied machine learning. I explain technical results clearly to collaborators of every background."
   ],
   "social": [
     {
