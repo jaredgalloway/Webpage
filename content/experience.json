@@ -6,8 +6,12 @@
     "endDate": "2026-08",
     "location": "Bozeman, MT (Remote)",
     "details": "Public Health Sciences Division · Matsen Lab",
-    "summary": "Designed and built multidms, a JAX model that jointly fits multiple deep mutational scanning datasets; validated it on simulated and lab data, and it now runs in primary analysis pipelines across multiple labs. Built a Nextflow pipeline that ran 50K+ HPC jobs to produce the primary data for a study published in *Cell*.",
+    "summary": "Conceptualized and implemented transformer-based deep amino acid selection models (DASM) of viral protein evolution in PyTorch. Designed and built multidms, a JAX model that jointly fits multiple deep mutational scanning datasets, now used in primary analysis pipelines across multiple labs. Built a Nextflow pipeline that ran 50K+ HPC jobs to produce the primary data for a study published in *Cell*.",
     "highlights": [
+      {
+        "title": "Deep selection models for viral protein evolution",
+        "text": "Conceptualized and implemented a Deep Amino acid Selection Model (DASM) for viral protein evolution, adapting the lab's transformer-based framework for separating natural selection from mutation from B-cell lineages to viral phylogenies. Built the codon-level training objective and the parent-child data pipeline in PyTorch within the open-source [netam](https://github.com/matsengrp/netam) package. This work is unpublished."
+      },
       {
         "title": "Jointly modeling deep mutational scanning (DMS) datasets",
         "text": "Developed a novel approach for jointly modeling multiple distinct DMS experimental datasets. The method was validated *in-silico* (using simulated data) as well as *in-vitro* (testing mutations in the lab, directly). I implemented a functional API into a JAX-based python package, [multidms](https://matsengrp.github.io/multidms/) [@Haddox_2023], which is now used in a primary analysis pipeline across multiple labs."
@@ -56,7 +60,6 @@
     "endDate": "2020-12",
     "location": "Seattle, WA",
     "details": "Paid Internship · Computational Biology · Matsen Lab",
-    "cvPageBreakBefore": true,
     "summary": "Built phippery, a PhIP-Seq analysis suite (Nextflow pipeline, Python API for normalization and enrichment statistics, Streamlit app) used in six collaborative publications. Co-developed torchdms, a PyTorch package for neural-network global epistasis models. Led cross-lab team meetings.",
     "highlights": [
       {
@@ -80,7 +83,7 @@
     "endDate": "2020-03",
     "location": "Eugene, OR",
     "details": "BIO 410/510 · Biology Department · UO Graduate School",
-    "summary": "Taught graduate-level Python/Bash scripting and algorithmic thinking. Built Docker containers and a Jupyter Notebook auto-grading pipeline. Led discussions and graded ~100 assignments per week.",
+    "summary": "Taught graduate-level Python/Bash scripting and algorithmic thinking. Built Docker containers and a Jupyter Notebook auto-grading pipeline. Led discussions and graded about 100 assignments per week.",
     "highlights": [
       {
         "title": "Teaching",

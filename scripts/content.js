@@ -57,7 +57,8 @@ function requireDate(value, field, label, file, { allowPresent = false } = {}) {
 
 function validateProfile(profile) {
   const file = 'profile.json';
-  requireFields(profile, ['name', 'fullName', 'tagline', 'email', 'website', 'photo', 'heroImage'], file);
+  requireFields(profile, ['name', 'fullName', 'tagline', 'summary', 'email', 'website', 'photo', 'heroImage', 'explore'], file);
+  requireFields(profile.explore, ['research', 'experience', 'skills', 'resume', 'cv'], file);
   requireURL(profile.website, 'website', file);
   requireArray(profile.bio, '"bio"', file);
   requireArray(profile.social, '"social"', file);
@@ -141,29 +142,60 @@ function loadPrivate() {
   return priv;
 }
 
-// Resolves content/publications/selected.json against the .bib files into
-// display-ready records for the website.
-function loadPublications() {
+// Resolves content/publications/selected.json against the .bib files (and
+// projects.json for code/docs links) into display-ready research cards.
+function loadPublications(projects) {
   const file = 'publications/selected.json';
   const selected = readJSON(file);
-  requireField(selected, 'intro', file);
+  requireFields(selected, ['intro', 'outro', 'scholar'], file);
+  requireFields(selected.scholar, ['url', 'citations', 'hIndex'], file);
+  requireURL(selected.scholar.url, 'scholar.url', file);
   requireArray(selected.papers, '"papers"', file);
+
   const bib = {};
   for (const name of ['first.bib', 'supporting.bib']) {
     Object.assign(bib, parseBib(fs.readFileSync(path.join(CONTENT, 'publications', name), 'utf8')));
   }
+
   const papers = selected.papers.map(p => {
-    requireField(p, 'key', file);
+    requireFields(p, ['key', 'label', 'role', 'summary'], file);
     const e = bib[p.key];
     if (!e) throw new Error(`content/${file}: no BibTeX entry "${p.key}"`);
     requireFields(e, ['title', 'author', 'journal', 'year'], `publications/*.bib (${p.key})`);
     const url = p.url || (e.doi ? `https://doi.org/${e.doi}` : null);
     if (!url) throw new Error(`content/${file}: "${p.key}" needs a DOI in the .bib or a "url"`);
     requireURL(url, 'url', file);
-    return { key: p.key, note: p.note, title: e.title, authors: authorList(e.author),
-      venue: e.journal.replace(/ preprint arXiv:.*/, ''), year: e.year, url };
+
+    const links = [{ label: 'Paper', url }];
+    if (p.project) {
+      const project = projects.find(x => x.title === p.project);
+      if (!project) throw new Error(`content/${file}: "${p.key}" names unknown project "${p.project}"`);
+      for (const l of project.links) if (l.kind !== 'paper') links.push({ label: l.label, url: l.url });
+    }
+
+    for (const l of p.links || []) {
+      requireFields(l, ['label', 'url'], file);
+      requireURL(l.url, `${p.key} links`, file);
+      links.push({ label: l.label, url: l.url });
+    }
+
+    if (p.figure) {
+      requireFields(p.figure, ['file', 'alt', 'credit'], file);
+      if (!fs.existsSync(path.join(CONTENT, p.figure.file))) {
+        throw new Error(`content/${file}: figure not found: ${p.figure.file}`);
+      }
+    }
+
+    return {
+      key: p.key, label: p.label, role: p.role, summary: p.summary,
+      abstract: p.abstract || null, figure: p.figure ? { ...p.figure } : null,
+      title: e.title, authors: authorList(e.author),
+      venue: e.journal.replace(/ preprint arXiv:.*/, ''), year: e.year, url, links
+    };
   });
-  return { intro: selected.intro, papers };
+
+  return { intro: selected.intro, outro: selected.outro, scholar: selected.scholar,
+    count: Object.keys(bib).length, papers };
 }
 
 function loadContent() {
@@ -174,7 +206,6 @@ function loadContent() {
     experience: readJSON('experience.json'),
     education: readJSON('education.json'),
     achievements: readJSON('achievements.json'),
-    publications: loadPublications(),
     private: loadPrivate()
   };
   validateProfile(content.profile);
@@ -183,6 +214,7 @@ function loadContent() {
   validateExperience(content.experience);
   validateEducation(content.education);
   validateSimpleList(content.achievements, ['title', 'text'], 'achievements.json');
+  content.publications = loadPublications(content.projects);
   return content;
 }
 

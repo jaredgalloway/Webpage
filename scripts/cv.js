@@ -185,4 +185,4 @@ function buildCV(content, outDir, { full = false } = {}) {
   return out;
 }
 
-module.exports = { buildCV, renderTeX, CV_FILENAME, BUILD };
+module.exports = { buildCV, renderTeX, run, CV_FILENAME, BUILD };

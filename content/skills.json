@@ -1,6 +1,7 @@
 [
   {
     "category": "Machine Learning",
+    "summary": "Transformer models of viral protein evolution (DASM, in PyTorch), joint models of deep mutational scans (multidms, in JAX), neural-network global epistasis models (torchdms, in PyTorch), and recurrent networks for recombination-rate estimation (ReLERNN, in TensorFlow/Keras).",
     "items": [
       { "name": "JAX" },
       { "name": "PyTorch" },
@@ -10,7 +11,9 @@
   },
   {
     "category": "Modeling & Statistics",
+    "summary": "Pulling biological signal out of noisy experiments: regularized and sparse models, global epistasis, Bayesian methods, and simulation to generate training data and validate methods.",
     "items": [
+      { "name": "Transformers" },
       { "name": "Neural networks (RNNs)" },
       { "name": "Regularized / sparse regression" },
       { "name": "Global epistasis models" },
@@ -21,6 +24,7 @@
   },
   {
     "category": "Languages",
+    "summary": "Python for nearly everything; C++ for tree-sequence recording in the SLiM simulator; R, Bash, and JavaScript where a project called for them.",
     "items": [
       { "name": "Python", "note": "preferred" },
       { "name": "R" },
@@ -32,6 +36,7 @@
   },
   {
     "category": "Data",
+    "summary": "Wrangling and encoding large biological datasets, from phylogenies of 13M+ viral genomes to multidimensional PhIP-Seq datasets.",
     "items": [
       { "name": "Pandas" },
       { "name": "Polars" },
@@ -43,6 +48,7 @@
   },
   {
     "category": "Visualization",
+    "summary": "Figures for papers in *Cell* and *eLife*, and interactive tools such as phippery's Streamlit app and multidms's interactive plots.",
     "items": [
       { "name": "Matplotlib" },
       { "name": "Plotnine", "note": "grammar of graphics" },
@@ -51,6 +57,7 @@
   },
   {
     "category": "Tools & Infrastructure",
+    "summary": "Reproducible pipelines in Nextflow and Snakemake (one ran 50K+ jobs on an HPC cluster), containers with Docker and Apptainer, CI with GitHub Actions, and sensitive data on HPC file systems and AWS S3.",
     "items": [
       { "name": "Git" },
       { "name": "GitHub Actions" },

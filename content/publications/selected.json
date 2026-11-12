@@ -1,11 +1,96 @@
 {
-  "intro": "1,800+ citations and an h-index of 17 on [Google Scholar](https://scholar.google.com/citations?user=zWo6lFcAAAAJ). Selected work in machine learning, data processing, and scientific software:",
+  "intro": "I've co-authored {publications} publications, cited {citations} times (h-index {hIndex}). These {selected} best represent my work in machine learning, data processing, and scientific software.",
+  "outro": "For my complete list of publications, see [Google Scholar]({scholar}) or my [full CV]({cv}).",
+  "scholar": {
+    "url": "https://scholar.google.com/citations?user=zWo6lFcAAAAJ",
+    "citations": "1,800+",
+    "hIndex": 17
+  },
   "papers": [
-    { "key": "DeWitt_2025", "note": "Built the Nextflow pipeline that produced the study's primary data" },
-    { "key": "Haddox_2023", "note": "multidms: a joint, sparsity-regularized model across deep mutational scans" },
-    { "key": "Galloway_2023", "note": "First author: phippery, a PhIP-Seq analysis suite (pipeline, Python API, and app)" },
-    { "key": "Garrett_2022", "note": "PhIP-Seq data processed and analyzed with phippery" },
-    { "key": "Stoddard_2021", "note": "PhIP-Seq data processed and analyzed with phippery" },
-    { "key": "Adrion_2020_relernn", "note": "ReLERNN: simulation-based deep learning, with RNNs trained on simulated genomes" }
+    {
+      "key": "DeWitt_2025",
+      "label": "Germinal center evolution",
+      "role": "Built the Nextflow pipeline that ran 50K+ HPC jobs and produced the 140+ phylogenetic trees behind the study's primary data and analysis.",
+      "summary": "Germinal centers are where B cells evolve better antibodies after infection or vaccination. By replaying more than 100 germinal center reactions and assigning every cell an affinity with deep mutational scanning, the study inferred the fitness landscape that drives affinity maturation.",
+      "abstract": "Darwinian evolution of immunoglobulin genes within germinal centers (GCs) underlies the progressive increase in antibody affinity following antigen exposure. Whereas the cellular mechanics of how competition between B cells increases affinity are well established, the evolutionary dynamics of this process are less clear. We developed an experimental evolution model in which we \"replay\" over one hundred monoclonal GC reactions, assigning affinities to each cell using deep mutational scanning. Our data reveal how GCs achieve predictable outcomes by means of noisy but persistent selection on an affinity landscape whose exploration is heavily constrained by somatic hypermutation biases. We infer a fitness landscape that quantitatively recapitulates the affinity maturation trajectory of our clone and find that apparent features of GC selection, such as permissiveness to low-affinity lineages and rapid plateauing of affinity, are likely artifacts of survivorship biases that distort our view of how B cell affinity progresses over time.",
+      "figure": {
+        "file": "images/papers/DeWitt_2025.jpg",
+        "alt": "Graphical abstract: 119 germinal centers are photoactivated, sorted, and sequenced to build phylogenetic trees; a yeast deep mutational scan assigns affinities to each cell, revealing hypermutation biases and an affinity-fitness landscape.",
+        "credit": "Graphical abstract from DeWitt et al. (2026), *Cell*. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
+      },
+      "links": [
+        {
+          "label": "Code",
+          "url": "https://github.com/matsengrp/gcreplay"
+        },
+        {
+          "label": "Docs",
+          "url": "https://matsen.group/gcreplay/"
+        }
+      ]
+    },
+    {
+      "key": "Haddox_2023",
+      "label": "multidms",
+      "project": "multidms",
+      "role": "Co-developed the joint modeling approach, validated it on simulated data, and built multidms, the JAX package that implements it.",
+      "summary": "Deep mutational scans measure the effects of thousands of mutations to a protein, but comparing scans across variants is confounded by experimental noise. multidms fits every experiment with one global epistasis model and regularized shift parameters, flagging only mutations whose effects truly differ, some by more than 1,000-fold across SARS-CoV-2 spike variants.",
+      "abstract": "Deep mutational scanning (DMS) is a high-throughput experimental technique that measures the effects of thousands of mutations to a protein. These experiments can be performed on multiple homologs of a protein or on the same protein selected under multiple conditions. It is often of biological interest to identify mutations with shifted effects across homologs or conditions. However, it is challenging to determine if observed shifts arise from biological signal or experimental noise. Here, we describe a method for jointly inferring mutational effects across multiple DMS experiments while also identifying mutations that have shifted in their effects among experiments. A key aspect of our method is to regularize the inferred shifts, so that they are nonzero only when strongly supported by the data. We apply this method to DMS experiments that measure how mutations to spike proteins from SARS-CoV-2 variants (Delta, Omicron BA.1, and Omicron BA.2) affect cell entry. Most mutational effects are conserved between these spike homologs, but a fraction have markedly shifted. We experimentally validate a subset of the mutations inferred to have shifted effects, and confirm differences of >1,000-fold in the impact of the same mutation on spike-mediated viral infection across spikes from different SARS-CoV-2 variants. Overall, our work establishes a general approach for comparing sets of DMS experiments to identify biologically important shifts in mutational effects.",
+      "figure": {
+        "file": "images/papers/Haddox_2023.png",
+        "alt": "Schematic of the multidms model: a sigmoid global epistasis curve maps a latent phenotype to a functional score; each mutation has a shared effect, plus a regularized shift in each experiment.",
+        "credit": "Figure 1 from Haddox et al. (2023), *bioRxiv*. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
+      }
+    },
+    {
+      "key": "Galloway_2023",
+      "label": "phippery",
+      "project": "phippery",
+      "role": "First author. Designed and built the suite: the phip-flow Nextflow pipeline, the phippery Python API, and the phip-viz Streamlit app.",
+      "summary": "PhIP-Seq measures which peptides a person's antibodies bind, across hundreds of thousands of peptides at once. phippery turns the raw sequencing reads into one tidy dataset, then supplies the normalization, enrichment statistics, and interactive heatmaps needed to analyze it.",
+      "abstract": "**Summary:** We present the phippery software suite for analyzing data from phage display methods that use immunoprecipitation and deep sequencing to capture antibody binding to peptides, often referred to as PhIP-Seq. It has three main components that can be used separately or in conjunction: (i) a Nextflow pipeline, phip-flow, to process raw sequencing data into a compact, multidimensional dataset format and allows for end-to-end automation of reproducible workflows. (ii) a Python API, phippery, which provides interfaces for tasks such as count normalization, enrichment calculation, multidimensional scaling, and more, and (iii) a Streamlit application, phip-viz, as an interactive interface for visualizing the data as a heatmap in a flexible manner.\n\n**Availability and implementation:** All software packages are publicly available under the MIT License. The phip-flow pipeline: https://github.com/matsengrp/phip-flow. The phippery library: https://github.com/matsengrp/phippery. The phip-viz Streamlit application: https://github.com/matsengrp/phip-viz.",
+      "figure": {
+        "file": "images/papers/Galloway_2023.jpg",
+        "alt": "Diagram of the phippery suite: a Nextflow alignment pipeline turns sequencing reads and annotations into a dataset on disk, a Python API transforms and models it, and a Streamlit app exports heatmaps.",
+        "credit": "Figure 1 from Galloway et al. (2023), *Bioinformatics*. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
+      }
+    },
+    {
+      "key": "Garrett_2022",
+      "label": "Vaccine-induced epitopes",
+      "role": "Processed and analyzed the PhIP-Seq data with phippery.",
+      "summary": "We mapped where antibodies bind on the SARS-CoV-2 Spike protein, and which mutations let the virus escape them, in vaccinated and previously infected people. Vaccination raised antibodies against regions that mild infection did not, with more uniform escape pathways across individuals.",
+      "abstract": "**Background:** Control of the COVID-19 pandemic will rely on SARS-CoV-2 vaccine-elicited antibodies to protect against emerging and future variants; an understanding of the unique features of the humoral responses to infection and vaccination, including different vaccine platforms, is needed to achieve this goal.\n\n**Methods:** The epitopes and pathways of escape for Spike-specific antibodies in individuals with diverse infection and vaccination history were profiled using Phage-DMS. Principal component analysis was performed to identify regions of antibody binding along the Spike protein that differentiate the samples from one another. Within these epitope regions, we determined potential sites of escape by comparing antibody binding of peptides containing wild-type residues versus peptides containing a mutant residue.\n\n**Results:** Individuals with mild infection had antibodies that bound to epitopes in the S2 subunit within the fusion peptide and heptad-repeat regions, whereas vaccinated individuals had antibodies that additionally bound to epitopes in the N- and C-terminal domains of the S1 subunit, a pattern that was also observed in individuals with severe disease due to infection. Epitope binding appeared to change over time after vaccination, but other covariates such as mRNA vaccine dose, mRNA vaccine type, and age did not affect antibody binding to these epitopes. Vaccination induced a relatively uniform escape profile across individuals for some epitopes, whereas there was much more variation in escape pathways in mildly infected individuals. In the case of antibodies targeting the fusion peptide region, which was a common response to both infection and vaccination, the escape profile after infection was not altered by subsequent vaccination.\n\n**Conclusions:** The finding that SARS-CoV-2 mRNA vaccination resulted in binding to additional epitopes beyond what was seen after infection suggests that protection could vary depending on the route of exposure to Spike antigen. The relatively conserved escape pathways to vaccine-induced antibodies relative to infection-induced antibodies suggests that if escape variants emerge they may be readily selected for across vaccinated individuals. Given that the majority of people will be first exposed to Spike via vaccination and not infection, this work has implications for predicting the selection of immune escape variants at a population level.",
+      "figure": {
+        "file": "images/papers/Garrett_2022.jpg",
+        "alt": "Heatmap of antibody binding along the SARS-CoV-2 Spike protein, one row per serum sample, grouped into vaccinated and non-vaccinated people; vaccinated samples show extra binding in the NTD and CTD regions.",
+        "credit": "Adapted from Figure 2A of Garrett et al. (2022), *eLife*. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
+      }
+    },
+    {
+      "key": "Stoddard_2021",
+      "label": "Coronavirus epitope profiling",
+      "role": "Processed and analyzed the PhIP-Seq data with phippery.",
+      "summary": "A phage display library covering every human-infecting coronavirus let us map antibody binding sites across their entire proteomes. COVID-19 patients' antibodies mostly targeted Spike, nucleocapsid, and ORF1ab, and cross-reacted with the endemic coronaviruses behind common colds.",
+      "abstract": "A major goal of current severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) vaccine efforts is to elicit antibody responses that confer protection. Mapping the epitope targets of the SARS-CoV-2 antibody response is critical for vaccine design, diagnostics, and development of therapeutics. Here, we develop a pan-coronavirus phage display library to map antibody binding sites at high resolution within the complete viral proteomes of all known human-infecting coronaviruses in patients with mild or moderate/severe coronavirus disease 2019 (COVID-19). We find that the majority of immune responses to SARS-CoV-2 are targeted to the spike protein, nucleocapsid, and ORF1ab and include sites of mutation in current variants of concern. Some epitopes are identified in the majority of samples, while others are rare, and we find variation in the number of epitopes targeted between individuals. We find low levels of SARS-CoV-2 cross-reactivity in individuals with no exposure to the virus and significant cross-reactivity with endemic human coronaviruses (CoVs) in convalescent sera from patients with COVID-19.",
+      "figure": {
+        "file": "images/papers/Stoddard_2021.jpg",
+        "alt": "Graphical abstract: a pan-coronavirus phage display library is screened with COVID-19 and pre-pandemic sera; patient antibodies bind S, N, and ORF1ab epitopes and cross-react strongly with endemic coronaviruses.",
+        "credit": "Graphical abstract from Stoddard et al. (2021), *Cell Reports*. [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)."
+      }
+    },
+    {
+      "key": "Adrion_2020_relernn",
+      "label": "ReLERNN",
+      "project": "ReLERNN",
+      "role": "Trained and evaluated the recurrent neural networks on simulated data, and built the paper's analysis pipeline.",
+      "summary": "Recombination rates vary along the genome, and estimating them usually takes large samples. ReLERNN trains a recurrent neural network on simulated genomes to read genotype alignments directly, recovering accurate recombination maps from only a handful of genomes.",
+      "abstract": "Accurately inferring the genome-wide landscape of recombination rates in natural populations is a central aim in genomics, as patterns of linkage influence everything from genetic mapping to understanding evolutionary history. Here, we describe recombination landscape estimation using recurrent neural networks (ReLERNN), a deep learning method for estimating a genome-wide recombination map that is accurate even with small numbers of pooled or individually sequenced genomes. Rather than use summaries of linkage disequilibrium as its input, ReLERNN takes columns from a genotype alignment, which are then modeled as a sequence across the genome using a recurrent neural network. We demonstrate that ReLERNN improves accuracy and reduces bias relative to existing methods and maintains high accuracy in the face of demographic model misspecification, missing genotype calls, and genome inaccessibility. We apply ReLERNN to natural populations of African *Drosophila melanogaster* and show that genome-wide recombination landscapes, although largely correlated among populations, exhibit important population-specific differences. Lastly, we connect the inferred patterns of recombination with the frequencies of major inversions segregating in natural *Drosophila* populations.",
+      "figure": {
+        "file": "images/papers/Adrion_2020_relernn.jpg",
+        "alt": "ReLERNN workflow: simulate training data with msprime, train a bidirectional GRU network on genotypes or allele frequencies, predict recombination rates, and correct them with bootstrapped confidence intervals.",
+        "credit": "Figure 1 from Adrion et al. (2020), *Molecular Biology and Evolution*. [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)."
+      }
+    }
   ]
 }

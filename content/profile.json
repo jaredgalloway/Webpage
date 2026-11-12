@@ -2,6 +2,14 @@
   "name": "Jared Galloway",
   "fullName": "Jared G. Galloway",
   "tagline": "ML Scientist & Engineer",
+  "summary": "ML scientist and engineer with nine years of experience building models and research software for biological data, from transformers and recurrent networks to sparse statistical models, in PyTorch, JAX, and TensorFlow. Co-author of more than 20 publications with 1,800+ citations, and builder of open-source packages and HPC and cloud pipelines used across multiple labs.",
+  "explore": {
+    "research": "{publications} publications cited {citations} times; the papers that best show my work, with figures, code, and docs",
+    "experience": "Every role in detail, {years} years from undergraduate research to transformer models",
+    "skills": "Languages, ML frameworks, statistics, pipelines, and infrastructure, and where I've used each",
+    "resume": "A short summary",
+    "cv": "The full CV, with every publication"
+  },
   "email": "jaredgalloway07@gmail.com",
   "location": "Bozeman, MT",
   "website": "https://jaredgalloway.com/",
@@ -9,8 +17,8 @@
   "heroImage": "images/mirror-lake.jpeg",
   "bio": [
     "I build machine learning models and the software that puts them to work on noisy, high-dimensional biological data. I hold a B.S. in Computer & Information Science and an M.S. in Biology, and have spent nine years developing methods in research groups at HHMI, Fred Hutch, and the University of Oregon.",
-    "I work across the whole modeling lifecycle: encoding data, fitting models in JAX, PyTorch, and TensorFlow, validating on simulated and experimental data, and shipping open-source packages that other labs use in their primary analyses.",
-    "My work includes [ReLERNN](https://github.com/kr-colab/ReLERNN), simulation-based deep learning for recombination-rate estimation (180+ citations); [multidms](https://github.com/matsengrp/multidms), a JAX model of deep mutational scans; and [phippery](https://github.com/matsengrp/phippery), a PhIP-Seq data-processing suite, plus pipelines run at scale with Nextflow and Snakemake on HPC and AWS.",
+    "I work across the whole modeling lifecycle and the infrastructure around it: encoding data, fitting models in PyTorch, JAX, and TensorFlow, validating them on simulated and experimental data, and shipping open-source packages and pipelines that run at scale on HPC clusters and AWS. My [skills page](https://jaredgalloway.com/skills/) shows where I've used each tool.",
+    "That work has contributed to more than 20 publications with 1,800+ citations, in journals including *Cell*, *eLife*, and *Molecular Biology and Evolution*. My [research page](https://jaredgalloway.com/research/) collects the papers that best represent it, with figures, code, and documentation. Most recently I built transformer models of natural selection in viral proteins; my [experience page](https://jaredgalloway.com/experience/) covers each role in detail.",
     "I left the Matsen Lab in August 2026 and am looking for my next role in applied machine learning. I explain technical results clearly to collaborators of every background."
   ],
   "social": [

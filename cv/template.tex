@@ -112,17 +112,20 @@
     \end{tabular*}\vspace{-2pt}
 }
 
+% Wrapped in a minipage so a project's heading never strands at a page bottom.
 \newcommand{\resumeSoftwareSubheading}[3]{
   \vspace{-3pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \begin{minipage}[t]{0.97\textwidth}
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1}\label{#1} & #2 \\
     \end{tabular*}\vspace{-7pt}
     \begin{center}
-    \begin{minipage}{0.87\textwidth}
+    \begin{minipage}{0.897\textwidth}
     \linespread{0.80}\selectfont
         {\small#3}
     \end{minipage}\vspace{-7pt}
     \end{center}
+    \end{minipage}
 }
 
 % Simple items underneath a heading

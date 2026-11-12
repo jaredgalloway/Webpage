@@ -36,30 +36,6 @@
     updateThemeLabel();
   }
 
-  // ── T043: Scroll Animations ─────────────────────────────────────────
-
-  function initScrollAnimations() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var sections = document.querySelectorAll('main > section:not(.hero)');
-    for (var i = 0; i < sections.length; i++) {
-      sections[i].classList.add('animate-in');
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-      for (var j = 0; j < entries.length; j++) {
-        if (entries[j].isIntersecting) {
-          entries[j].target.classList.add('visible');
-          observer.unobserve(entries[j].target);
-        }
-      }
-    }, { threshold: 0.1, rootMargin: '0px' });
-
-    for (var k = 0; k < sections.length; k++) {
-      observer.observe(sections[k]);
-    }
-  }
-
   // ── T045: Email Obfuscation ─────────────────────────────────────────
 
   function initEmailObfuscation() {
@@ -85,7 +61,6 @@
     var themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
 
-    initScrollAnimations();
     initEmailObfuscation();
   });
 })();
