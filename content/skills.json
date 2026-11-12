@@ -1,24 +1,24 @@
 [
   {
     "category": "Machine Learning",
-    "summary": "Transformer models of viral protein evolution (DASM, in PyTorch), joint models of deep mutational scans (multidms, in JAX), neural-network global epistasis models (torchdms, in PyTorch), and recurrent networks for recombination-rate estimation (ReLERNN, in TensorFlow/Keras).",
+    "summary": "Transformer models of viral protein evolution (DASM, in PyTorch), joint models of deep mutational scans ([multidms](https://jaredgalloway.com/research/#multidms), in JAX), neural-network global epistasis models (torchdms, in PyTorch), and recurrent networks for recombination-rate estimation ([ReLERNN](https://jaredgalloway.com/research/#relernn), in TensorFlow/Keras).",
     "items": [
       { "name": "JAX" },
       { "name": "PyTorch" },
       { "name": "TensorFlow/Keras" },
-      { "name": "Scikit-learn" }
+      { "name": "Scikit-learn" },
+      { "name": "Transformers" },
+      { "name": "Recurrent neural networks" },
+      { "name": "Simulation-based deep learning" }
     ]
   },
   {
     "category": "Modeling & Statistics",
     "summary": "Pulling biological signal out of noisy experiments: regularized and sparse models, global epistasis, Bayesian methods, and simulation to generate training data and validate methods.",
     "items": [
-      { "name": "Transformers" },
-      { "name": "Neural networks (RNNs)" },
       { "name": "Regularized / sparse regression" },
       { "name": "Global epistasis models" },
       { "name": "Bayesian statistics" },
-      { "name": "Simulation-based deep learning" },
       { "name": "Linear algebra" }
     ]
   },
@@ -48,7 +48,7 @@
   },
   {
     "category": "Visualization",
-    "summary": "Figures for papers in *Cell* and *eLife*, and interactive tools such as phippery's Streamlit app and multidms's interactive plots.",
+    "summary": "Figures for papers in *Cell* and *eLife*, and interactive tools such as [phippery](https://jaredgalloway.com/research/#phippery)'s Streamlit app and multidms's interactive plots.",
     "items": [
       { "name": "Matplotlib" },
       { "name": "Plotnine", "note": "grammar of graphics" },
@@ -77,7 +77,7 @@
       { "name": "Vim", "only": "cv" },
       { "name": "tmux", "only": "cv" },
       { "name": "VSCode", "only": "cv" },
-      { "name": "LaTeX" },
+      { "name": "LaTeX", "only": "cv" },
       { "name": "HTML", "only": "cv" },
       { "name": "Markdown", "only": "cv" }
     ]

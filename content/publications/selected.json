@@ -8,6 +8,45 @@
   },
   "papers": [
     {
+      "key": "Haddox_2023",
+      "label": "multidms",
+      "project": "multidms",
+      "role": "Co-developed the joint modeling approach, validated it on simulated data, and built multidms, the JAX package that implements it.",
+      "summary": "Deep mutational scans measure the effects of thousands of mutations to a protein, but comparing scans across variants is confounded by experimental noise. multidms fits every experiment with one global epistasis model and regularized shift parameters, flagging only mutations whose effects truly differ, some by more than 1,000-fold across SARS-CoV-2 spike variants.",
+      "abstract": "Deep mutational scanning (DMS) is a high-throughput experimental technique that measures the effects of thousands of mutations to a protein. These experiments can be performed on multiple homologs of a protein or on the same protein selected under multiple conditions. It is often of biological interest to identify mutations with shifted effects across homologs or conditions. However, it is challenging to determine if observed shifts arise from biological signal or experimental noise. Here, we describe a method for jointly inferring mutational effects across multiple DMS experiments while also identifying mutations that have shifted in their effects among experiments. A key aspect of our method is to regularize the inferred shifts, so that they are nonzero only when strongly supported by the data. We apply this method to DMS experiments that measure how mutations to spike proteins from SARS-CoV-2 variants (Delta, Omicron BA.1, and Omicron BA.2) affect cell entry. Most mutational effects are conserved between these spike homologs, but a fraction have markedly shifted. We experimentally validate a subset of the mutations inferred to have shifted effects, and confirm differences of >1,000-fold in the impact of the same mutation on spike-mediated viral infection across spikes from different SARS-CoV-2 variants. Overall, our work establishes a general approach for comparing sets of DMS experiments to identify biologically important shifts in mutational effects.",
+      "figure": {
+        "file": "images/papers/Haddox_2023.png",
+        "alt": "Schematic of the multidms model: a sigmoid global epistasis curve maps a latent phenotype to a functional score; each mutation has a shared effect, plus a regularized shift in each experiment.",
+        "credit": "Figure 1 from Haddox et al. (2023), *bioRxiv*. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
+      }
+    },
+    {
+      "key": "Adrion_2020_relernn",
+      "label": "ReLERNN",
+      "project": "ReLERNN",
+      "role": "Trained and evaluated the recurrent neural networks on simulated data, and built the paper's analysis pipeline.",
+      "summary": "Recombination rates vary along the genome, and estimating them usually takes large samples. ReLERNN trains a recurrent neural network on simulated genomes to read genotype alignments directly, recovering accurate recombination maps from only a handful of genomes.",
+      "abstract": "Accurately inferring the genome-wide landscape of recombination rates in natural populations is a central aim in genomics, as patterns of linkage influence everything from genetic mapping to understanding evolutionary history. Here, we describe recombination landscape estimation using recurrent neural networks (ReLERNN), a deep learning method for estimating a genome-wide recombination map that is accurate even with small numbers of pooled or individually sequenced genomes. Rather than use summaries of linkage disequilibrium as its input, ReLERNN takes columns from a genotype alignment, which are then modeled as a sequence across the genome using a recurrent neural network. We demonstrate that ReLERNN improves accuracy and reduces bias relative to existing methods and maintains high accuracy in the face of demographic model misspecification, missing genotype calls, and genome inaccessibility. We apply ReLERNN to natural populations of African *Drosophila melanogaster* and show that genome-wide recombination landscapes, although largely correlated among populations, exhibit important population-specific differences. Lastly, we connect the inferred patterns of recombination with the frequencies of major inversions segregating in natural *Drosophila* populations.",
+      "figure": {
+        "file": "images/papers/Adrion_2020_relernn.jpg",
+        "alt": "ReLERNN workflow: simulate training data with msprime, train a bidirectional GRU network on genotypes or allele frequencies, predict recombination rates, and correct them with bootstrapped confidence intervals.",
+        "credit": "Figure 1 from Adrion et al. (2020), *Molecular Biology and Evolution*. [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)."
+      }
+    },
+    {
+      "key": "Galloway_2023",
+      "label": "phippery",
+      "project": "phippery",
+      "role": "First author. Designed and built the suite: the phip-flow Nextflow pipeline, the phippery Python API, and the phip-viz Streamlit app.",
+      "summary": "PhIP-Seq measures which peptides a person's antibodies bind, across hundreds of thousands of peptides at once. phippery turns the raw sequencing reads into one tidy dataset, then supplies the normalization, enrichment statistics, and interactive heatmaps needed to analyze it.",
+      "abstract": "**Summary:** We present the phippery software suite for analyzing data from phage display methods that use immunoprecipitation and deep sequencing to capture antibody binding to peptides, often referred to as PhIP-Seq. It has three main components that can be used separately or in conjunction: (i) a Nextflow pipeline, phip-flow, to process raw sequencing data into a compact, multidimensional dataset format and allows for end-to-end automation of reproducible workflows. (ii) a Python API, phippery, which provides interfaces for tasks such as count normalization, enrichment calculation, multidimensional scaling, and more, and (iii) a Streamlit application, phip-viz, as an interactive interface for visualizing the data as a heatmap in a flexible manner.\n\n**Availability and implementation:** All software packages are publicly available under the MIT License. The phip-flow pipeline: https://github.com/matsengrp/phip-flow. The phippery library: https://github.com/matsengrp/phippery. The phip-viz Streamlit application: https://github.com/matsengrp/phip-viz.",
+      "figure": {
+        "file": "images/papers/Galloway_2023.jpg",
+        "alt": "Diagram of the phippery suite: a Nextflow alignment pipeline turns sequencing reads and annotations into a dataset on disk, a Python API transforms and models it, and a Streamlit app exports heatmaps.",
+        "credit": "Figure 1 from Galloway et al. (2023), *Bioinformatics*. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
+      }
+    },
+    {
       "key": "DeWitt_2025",
       "label": "Germinal center evolution",
       "role": "Built the Nextflow pipeline that ran 50K+ HPC jobs and produced the 140+ phylogenetic trees behind the study's primary data and analysis.",
@@ -28,32 +67,6 @@
           "url": "https://matsen.group/gcreplay/"
         }
       ]
-    },
-    {
-      "key": "Haddox_2023",
-      "label": "multidms",
-      "project": "multidms",
-      "role": "Co-developed the joint modeling approach, validated it on simulated data, and built multidms, the JAX package that implements it.",
-      "summary": "Deep mutational scans measure the effects of thousands of mutations to a protein, but comparing scans across variants is confounded by experimental noise. multidms fits every experiment with one global epistasis model and regularized shift parameters, flagging only mutations whose effects truly differ, some by more than 1,000-fold across SARS-CoV-2 spike variants.",
-      "abstract": "Deep mutational scanning (DMS) is a high-throughput experimental technique that measures the effects of thousands of mutations to a protein. These experiments can be performed on multiple homologs of a protein or on the same protein selected under multiple conditions. It is often of biological interest to identify mutations with shifted effects across homologs or conditions. However, it is challenging to determine if observed shifts arise from biological signal or experimental noise. Here, we describe a method for jointly inferring mutational effects across multiple DMS experiments while also identifying mutations that have shifted in their effects among experiments. A key aspect of our method is to regularize the inferred shifts, so that they are nonzero only when strongly supported by the data. We apply this method to DMS experiments that measure how mutations to spike proteins from SARS-CoV-2 variants (Delta, Omicron BA.1, and Omicron BA.2) affect cell entry. Most mutational effects are conserved between these spike homologs, but a fraction have markedly shifted. We experimentally validate a subset of the mutations inferred to have shifted effects, and confirm differences of >1,000-fold in the impact of the same mutation on spike-mediated viral infection across spikes from different SARS-CoV-2 variants. Overall, our work establishes a general approach for comparing sets of DMS experiments to identify biologically important shifts in mutational effects.",
-      "figure": {
-        "file": "images/papers/Haddox_2023.png",
-        "alt": "Schematic of the multidms model: a sigmoid global epistasis curve maps a latent phenotype to a functional score; each mutation has a shared effect, plus a regularized shift in each experiment.",
-        "credit": "Figure 1 from Haddox et al. (2023), *bioRxiv*. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
-      }
-    },
-    {
-      "key": "Galloway_2023",
-      "label": "phippery",
-      "project": "phippery",
-      "role": "First author. Designed and built the suite: the phip-flow Nextflow pipeline, the phippery Python API, and the phip-viz Streamlit app.",
-      "summary": "PhIP-Seq measures which peptides a person's antibodies bind, across hundreds of thousands of peptides at once. phippery turns the raw sequencing reads into one tidy dataset, then supplies the normalization, enrichment statistics, and interactive heatmaps needed to analyze it.",
-      "abstract": "**Summary:** We present the phippery software suite for analyzing data from phage display methods that use immunoprecipitation and deep sequencing to capture antibody binding to peptides, often referred to as PhIP-Seq. It has three main components that can be used separately or in conjunction: (i) a Nextflow pipeline, phip-flow, to process raw sequencing data into a compact, multidimensional dataset format and allows for end-to-end automation of reproducible workflows. (ii) a Python API, phippery, which provides interfaces for tasks such as count normalization, enrichment calculation, multidimensional scaling, and more, and (iii) a Streamlit application, phip-viz, as an interactive interface for visualizing the data as a heatmap in a flexible manner.\n\n**Availability and implementation:** All software packages are publicly available under the MIT License. The phip-flow pipeline: https://github.com/matsengrp/phip-flow. The phippery library: https://github.com/matsengrp/phippery. The phip-viz Streamlit application: https://github.com/matsengrp/phip-viz.",
-      "figure": {
-        "file": "images/papers/Galloway_2023.jpg",
-        "alt": "Diagram of the phippery suite: a Nextflow alignment pipeline turns sequencing reads and annotations into a dataset on disk, a Python API transforms and models it, and a Streamlit app exports heatmaps.",
-        "credit": "Figure 1 from Galloway et al. (2023), *Bioinformatics*. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
-      }
     },
     {
       "key": "Garrett_2022",
@@ -77,19 +90,6 @@
         "file": "images/papers/Stoddard_2021.jpg",
         "alt": "Graphical abstract: a pan-coronavirus phage display library is screened with COVID-19 and pre-pandemic sera; patient antibodies bind S, N, and ORF1ab epitopes and cross-react strongly with endemic coronaviruses.",
         "credit": "Graphical abstract from Stoddard et al. (2021), *Cell Reports*. [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)."
-      }
-    },
-    {
-      "key": "Adrion_2020_relernn",
-      "label": "ReLERNN",
-      "project": "ReLERNN",
-      "role": "Trained and evaluated the recurrent neural networks on simulated data, and built the paper's analysis pipeline.",
-      "summary": "Recombination rates vary along the genome, and estimating them usually takes large samples. ReLERNN trains a recurrent neural network on simulated genomes to read genotype alignments directly, recovering accurate recombination maps from only a handful of genomes.",
-      "abstract": "Accurately inferring the genome-wide landscape of recombination rates in natural populations is a central aim in genomics, as patterns of linkage influence everything from genetic mapping to understanding evolutionary history. Here, we describe recombination landscape estimation using recurrent neural networks (ReLERNN), a deep learning method for estimating a genome-wide recombination map that is accurate even with small numbers of pooled or individually sequenced genomes. Rather than use summaries of linkage disequilibrium as its input, ReLERNN takes columns from a genotype alignment, which are then modeled as a sequence across the genome using a recurrent neural network. We demonstrate that ReLERNN improves accuracy and reduces bias relative to existing methods and maintains high accuracy in the face of demographic model misspecification, missing genotype calls, and genome inaccessibility. We apply ReLERNN to natural populations of African *Drosophila melanogaster* and show that genome-wide recombination landscapes, although largely correlated among populations, exhibit important population-specific differences. Lastly, we connect the inferred patterns of recombination with the frequencies of major inversions segregating in natural *Drosophila* populations.",
-      "figure": {
-        "file": "images/papers/Adrion_2020_relernn.jpg",
-        "alt": "ReLERNN workflow: simulate training data with msprime, train a bidirectional GRU network on genotypes or allele frequencies, predict recombination rates, and correct them with bootstrapped confidence intervals.",
-        "credit": "Figure 1 from Adrion et al. (2020), *Molecular Biology and Evolution*. [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)."
       }
     }
   ]

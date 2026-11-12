@@ -27,9 +27,11 @@ function sentences(text) {
 }
 
 function renderHeader(profile) {
+  // Plain-text URLs (no icon glyphs) survive printing and resume-screening software.
   const links = forTarget(profile.social, 'cv').map(s => {
-    const label = s.platform === 'website' ? new URL(s.url).hostname : s.label;
-    return href(s.url, `\\${s.icon}\\ ${escapeLaTeX(label)}`);
+    const u = new URL(s.url);
+    const text = s.platform === 'scholar' ? 'Google Scholar' : (u.hostname.replace(/^www\./, '') + u.pathname).replace(/\/$/, '');
+    return href(s.url, escapeLaTeX(text));
   });
   const contact = [escapeLaTeX(profile.email), escapeLaTeX(profile.location), ...links].join(' \\quad ');
   return `\\begin{center}

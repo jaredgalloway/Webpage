@@ -22,9 +22,16 @@ async function build() {
 
   console.log('\n🔨 Building from content/...\n');
 
+  // A partial build keeps the other half's output: --site keeps the PDFs,
+  // --cv keeps the site.
   console.log('[1/4] Cleaning dist/...');
-  fs.rmSync(DIST, { recursive: true, force: true });
   fs.mkdirSync(DIST, { recursive: true });
+  for (const entry of fs.readdirSync(DIST)) {
+    const isPDF = entry.endsWith('.pdf');
+    if ((wantCV && isPDF) || (wantSite && !isPDF)) {
+      fs.rmSync(path.join(DIST, entry), { recursive: true, force: true });
+    }
+  }
 
   console.log('[2/4] Validating content...');
   const content = loadContent();

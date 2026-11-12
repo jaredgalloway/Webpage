@@ -85,13 +85,15 @@ function pageTitle(cmd, title) {
 
 // ── Home ────────────────────────────────────────────────────────────────
 
-function renderHero(profile, files) {
+function renderHero(profile, publications, files) {
   const bg = imageBase(profile.heroImage);
+  const stats = `${publications.count} publications · ${publications.scholar.citations} citations · h-index ${publications.scholar.hIndex}`;
   const sizes = '(max-width: 60em) 100vw, 60em';
   return `<section class="hero">
       <p class="hero__cmd">$ whoami</p>
       <h1 class="hero__name">${escapeHTML(profile.name)}</h1>
       <p class="hero__tagline">${escapeHTML(profile.tagline)}</p>
+      <p class="hero__stats">${escapeHTML(stats)}</p>
       <div class="hero__actions">
         <a href="/${files.resume}" class="btn btn-primary" target="_blank" rel="noopener">Résumé (PDF)</a>
         <a href="/${files.cv}" class="btn btn-primary btn-ghost" target="_blank" rel="noopener">Full CV (PDF)</a>
@@ -151,14 +153,13 @@ function renderExplore(content, files) {
 }
 
 function renderContact(profile, files) {
-  const reversed = profile.email.split('').reverse().join('');
   const links = forTarget(profile.social, 'web').map(s =>
     `<a href="${escapeHTML(s.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-default btn-ghost btn-small">${escapeHTML(s.label)}</a>`
   );
   return `<section id="contact" class="contact">
       <h2 class="md-h2">Contact</h2>
       <p class="contact__email-wrap">
-        <a href="#" class="contact__email" data-email aria-label="Send email to ${escapeHTML(profile.name.split(' ')[0])}"><span class="contact__email-text" dir="rtl">${escapeHTML(reversed)}</span></a>
+        <a href="mailto:${escapeHTML(profile.email)}" class="contact__email">${escapeHTML(profile.email)}</a>
       </p>
       <div class="contact__social">
         ${links.join('\n        ')}
@@ -168,9 +169,9 @@ function renderContact(profile, files) {
 
 function renderHome(content, files) {
   return [
-    renderHero(content.profile, files),
-    renderAbout(content.profile),
+    renderHero(content.profile, content.publications, files),
     renderExplore(content, files),
+    renderAbout(content.profile),
     renderContact(content.profile, files)
   ].join('\n    ');
 }
@@ -182,7 +183,7 @@ function renderFigure(fig) {
   const widths = fig.widths;
   const largest = widths[widths.length - 1];
   return `<figure class="paper__figure">
-            <a href="/images/${base}-${largest}.webp" class="paper__figure-link" target="_blank" rel="noopener" aria-label="Open full-size figure">
+            <a href="/images/${base}-${largest}.webp" class="paper__figure-link" target="_blank" rel="noopener" title="Open full-size figure">
               <picture>
                 <source srcset="${srcset(base, 'webp', widths)}" type="image/webp" sizes="(max-width: 60em) 100vw, 56em">
                 <img src="/images/${base}-${widths[Math.min(1, widths.length - 1)]}.jpeg" alt="${escapeHTML(fig.alt)}" loading="lazy" width="${fig.width}" height="${fig.height}">
@@ -205,21 +206,21 @@ function renderPaper(p) {
   // Wide figures span the card; squarer ones sit beside the text on desktop.
   const layout = !p.figure ? 'paper--text' : p.figure.width / p.figure.height > 1.6 ? 'paper--wide' : 'paper--side';
   return `<article class="terminal-card paper ${layout}" id="${escapeHTML(slug(p.label))}">
-        <header>${escapeHTML(p.label)}</header>
+        <header>${escapeHTML(p.label)} <span class="paper__venue">${escapeHTML(p.venue)} ${escapeHTML(p.year)}</span></header>
         <div>
           <h2 class="paper__title"><a href="${escapeHTML(p.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(p.title)}</a></h2>
-          <p class="paper__cite">${renderAuthors(p.authors)} (${escapeHTML(p.year)}). <em>${escapeHTML(p.venue)}</em>.</p>
+          <p class="paper__cite">${renderAuthors(p.authors)} (${escapeHTML(p.year)}).</p>
           <div class="paper__body">
           ${p.figure ? renderFigure(p.figure) : ''}
           <div class="paper__text">
           <p class="paper__role"><span class="paper__role-label">My role:</span> ${toHTML(p.role)}</p>
           <p class="paper__summary">${toHTML(p.summary)}</p>
-          ${abstract}
           <div class="paper__links">
             ${links}
           </div>
           </div>
           </div>
+          ${abstract}
         </div>
       </article>`;
 }
@@ -249,14 +250,21 @@ function renderExperiencePage(content) {
     const items = e.highlights.map(h =>
       `<li><strong>${toHTML(h.title)}.</strong> ${toHTML(h.text)}</li>`
     ).join('\n              ');
+    const summary = e.summary.split(/(?<=[.!?])\s+(?=[A-Z*[])/).map(s => `<li>${toHTML(s)}</li>`).join('\n              ');
     return `<article class="terminal-card role" id="${slug(`${e.organization}-${e.title}`)}">
           <header><h2 class="role__title">${escapeHTML(e.title)}</h2></header>
           <div>
             <p class="role__meta"><span class="role__org">${escapeHTML(e.organization)}</span> <time class="role__date">${escapeHTML(dateRange(e))}</time></p>
             <p class="role__where">${escapeHTML([e.details, e.location].filter(Boolean).join(', '))}</p>
-            <ul class="role__highlights">
-              ${items}
+            <ul class="role__summary">
+              ${summary}
             </ul>
+            <details class="role__details">
+              <summary>Details</summary>
+              <ul class="role__highlights">
+              ${items}
+              </ul>
+            </details>
           </div>
         </article>`;
   }).join('\n        ');
@@ -492,7 +500,7 @@ async function minifyAssets(dist) {
   }
   fs.writeFileSync(path.join(dist, 'styles.css'), cssResult.styles, 'utf8');
 
-  for (const file of ['main.js', 'analytics.js']) {
+  for (const file of ['main.js', 'analytics.js', 'theme.js']) {
     const sources = file === 'main.js' ? ['constants.js', 'main.js'] : [file];
     const js = sources.map(f => fs.readFileSync(path.join(SRC, f), 'utf8')).join('\n');
     const result = await minifyJS(js, { compress: true, mangle: true });
@@ -503,7 +511,7 @@ async function minifyAssets(dist) {
 
 function copyStaticFiles(profile, dist) {
   fs.writeFileSync(path.join(dist, 'CNAME'), new URL(profile.website).hostname, 'utf8');
-  for (const file of ['robots.txt', '404.html']) {
+  for (const file of ['robots.txt', '404.html', 'favicon.svg']) {
     fs.copyFileSync(path.join(SRC, file), path.join(dist, file));
   }
   console.log('    ✓ Static files copied');

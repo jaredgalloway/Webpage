@@ -4,11 +4,11 @@
   // ── T040: Theme Toggle ──────────────────────────────────────────────
 
   function readTheme() {
-    try { return sessionStorage.getItem('theme'); } catch (e) { return null; }
+    try { return localStorage.getItem('theme'); } catch (e) { return null; }
   }
 
   function saveTheme(theme) {
-    try { sessionStorage.setItem('theme', theme); } catch (e) { /* storage blocked */ }
+    try { localStorage.setItem('theme', theme); } catch (e) { /* storage blocked */ }
   }
 
   function initTheme() {
@@ -36,23 +36,6 @@
     updateThemeLabel();
   }
 
-  // ── T045: Email Obfuscation ─────────────────────────────────────────
-
-  function initEmailObfuscation() {
-    var emailLink = document.querySelector('[data-email]');
-    if (!emailLink) return;
-    var emailText = emailLink.querySelector('.contact__email-text');
-    if (!emailText) return;
-
-    var reversed = emailText.textContent;
-    var email = reversed.split('').reverse().join('');
-
-    emailLink.addEventListener('click', function (e) {
-      e.preventDefault();
-      window.location.href = 'mailto:' + email;
-    });
-  }
-
   // ── Init ────────────────────────────────────────────────────────────
 
   initTheme();
@@ -61,6 +44,5 @@
     var themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
 
-    initEmailObfuscation();
   });
 })();

@@ -1,9 +1,14 @@
 # CLAUDE.md
 
-Jared Galloway's personal site (**jaredgalloway.com**) and **LaTeX CV**,
-built from one set of content files. Editing anything in `content/` updates
-both. A push to `main` rebuilds and deploys the site with the freshly compiled
-CV linked from it.
+Jared Galloway's personal site (**jaredgalloway.com**), **LaTeX CV**, and
+**one-page resume**, built from one set of content files. Editing anything in
+`content/` updates all three. A push to `main` rebuilds and deploys the site
+with the freshly compiled PDFs linked from it.
+
+The site has four pages: home (`/`: bio, an `ls -l ~` map of the site, contact),
+`/research/` (selected-paper cards), `/experience/` (every role in full, plus
+education and achievements), and `/skills/` (the full CV skill list with a
+summary per category).
 
 ## Layout
 
@@ -11,17 +16,19 @@ CV linked from it.
 |------|------|
 | `content/*.json` | **Single source of truth**: profile, experience, projects, skills, education, achievements |
 | `content/publications/{first,supporting}.bib` | BibTeX for the CV's two bibliographies |
-| `content/publications/selected.json` | Bib keys (+ optional note/url) for the site's Publications section; citation stats live in its `intro` |
+| `content/publications/selected.json` | Research-page cards: bib `key`, `label`, `role`, `summary`, `abstract`, `figure`, `project` (pulls code/docs links from projects.json), extra `links`; plus Scholar stats, `intro`, `outro` |
 | `content/images/` | Source photos (`profile.photo`, `profile.heroImage`) |
+| `content/images/papers/` | Paper figures for the research cards. Each card's `figure.credit` names its license; keep CC BY-NC-ND figures unedited (resizing only) |
 | `content/drafts.md` | Unused writing (old personal-statement drafts); never rendered |
 | `content/private.json` | **Gitignored.** Phone and references (format: `private.example.json`) |
 | `cv/template.tex` | CV preamble, macros, and section order; `{{name}}` placeholders |
+| `cv/resume.tex` | One-page resume layout; filled by `scripts/resume.js` |
 | `cv/texlive-packages.txt` | TeX Live packages CI installs |
 | `site/` | HTML template (`{{name}}` placeholders), CSS, JS, static files |
 | `scripts/content.js` | Loads and validates content; `forTarget()`, `formatMonthYear()` |
 | `scripts/markup.js` | Shared inline markup → HTML / LaTeX, plus the escapers |
 | `scripts/bib.js` | Minimal BibTeX reader for the site (the CV uses real bibtex) |
-| `scripts/cv.js`, `scripts/site.js` | Renderers/builders for each output |
+| `scripts/cv.js`, `scripts/resume.js`, `scripts/site.js` | Renderers/builders for each output |
 | `build.js` | Orchestrator → `dist/` (deployed) and `build/` (local scratch) |
 | `specs/`, `.specify/` | Historical speckit docs from the original site build; not the source of truth |
 
@@ -30,8 +37,8 @@ CV linked from it.
 Node ≥ 18, plus `pdflatex`/`bibtex` (MacTeX) for the CV.
 
 ```sh
-npm run build        # validate content → CV PDF + site into dist/
-npm run build:cv     # CV only
+npm run build        # validate content → CV + resume PDFs + site into dist/
+npm run build:cv     # CV and resume only
 npm run build:site   # site only (no TeX needed)
 npm run serve        # preview dist/ at http://localhost:8080
 ```
@@ -53,8 +60,16 @@ If `content/private.json` exists, the build also writes
 - Mark an entry, skill category, skill item, or social link with
   `"only": "cv"` or `"only": "web"` to show it in one output only.
   `"cvPageBreakBefore": true` on an experience entry forces a CV page break.
-- Experience gives the site `summary` and the CV `highlights`. Projects give the
-  site `summary` and the CV `description`. Dates are `YYYY-MM` or `"Present"`.
+  The skills page shows the full `cv` skill set; the resume uses the `web` set.
+- Experience gives the CV and the experience page `highlights`, and the resume
+  its `summary`, one bullet per sentence (roles after the third get only the
+  first sentence). Projects only feed the CV's software section and the code/docs
+  links on research cards. Dates are `YYYY-MM` or `"Present"`.
+- Text in `profile.explore` and `selected.json` `intro`/`outro` may use
+  `{publications}`, `{citations}`, `{years}`, `{hIndex}`, `{scholar}`, `{cv}`,
+  `{selected}` tokens; the publication count comes from the .bib files.
+- Write links to other site pages as absolute `https://jaredgalloway.com/...`
+  URLs so they work in the PDFs; the site build makes them relative.
 - Placeholders in `cv/template.tex` are strict: an unknown `{{x}}` fails the
   build, and so does one written inside a comment.
 - Any new `\usepackage` in the CV needs its TeX Live package added to
@@ -65,8 +80,9 @@ If `content/private.json` exists, the build also writes
 - The site is styled with [terminal.css](https://terminalcss.xyz) (npm devDependency).
   The build prepends `node_modules/terminal.css/dist/terminal.css` to
   `site/styles.css`, which holds only overrides and the dark/light palettes.
-- After a CV change, check that `pdfinfo dist/Jared_Galloway_CV.pdf` still
-  shows a sensible page count (currently 4).
+- After a content change, check that `pdfinfo dist/Jared_Galloway_CV.pdf` still
+  shows a sensible page count (currently 4) and that
+  `dist/Jared_Galloway_Resume.pdf` is still 1 page.
 
 ## Deploy
 
