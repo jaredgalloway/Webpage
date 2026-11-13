@@ -11,8 +11,8 @@
   "bio": [
     "I build machine learning models and the software that puts them to work on noisy, high-dimensional biological data. I hold a B.S. in Computer & Information Science and an M.S. in Biology, and have spent nine years developing methods in research groups at HHMI, Fred Hutch, and the University of Oregon.",
     "I work across the whole modeling lifecycle and the infrastructure around it: encoding data, fitting models in PyTorch, JAX, and TensorFlow, validating them on simulated and experimental data, and shipping open-source packages and pipelines that run at scale on HPC clusters and AWS. My [skills page](https://jaredgalloway.com/skills/) shows where I've used each tool.",
-    "That work has contributed to more than 20 publications with 1,800+ citations, in journals including *Cell*, *eLife*, and *Molecular Biology and Evolution*. My [research page](https://jaredgalloway.com/research/) collects the papers that best represent it, with figures, code, and documentation. Most recently I built transformer models of natural selection in viral proteins; my [experience page](https://jaredgalloway.com/experience/) covers each role in detail.",
-    "I left the Matsen Lab in August 2026 and am looking for my next role in applied machine learning. I take pride in clearly communicating my work, and enjoy the discussions that follow."
+    "That work has contributed to more than 20 publications with 1,800+ citations, in journals including *Cell*, *eLife*, and *Molecular Biology and Evolution*. My [research page](https://jaredgalloway.com/research/) collects the papers that best represent it, with figures, code, and documentation. Most recently, I built transformer models of natural selection in viral proteins. My [experience page](https://jaredgalloway.com/experience/) covers each role in detail.",
+    "I left the Matsen Lab in August 2026 and am looking for my next role in applied machine learning. I take pride in clearly communicating my work and enjoy the discussions that follow."
   ],
   "social": [
     {
