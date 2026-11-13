@@ -36,7 +36,7 @@
   },
   {
     "category": "Data",
-    "summary": "Wrangling and encoding large biological datasets, from phylogenies of 13M+ viral genomes to multidimensional PhIP-Seq datasets.",
+    "summary": "Wrangling and encoding large biological datasets, from phylogenies of 13M+ viral genomes to multidimensional PhIP-Seq data.",
     "items": [
       { "name": "Pandas" },
       { "name": "Polars" },
@@ -57,7 +57,7 @@
   },
   {
     "category": "Tools & Infrastructure",
-    "summary": "Reproducible pipelines in Nextflow and Snakemake (one ran 50K+ jobs on an HPC cluster), containers with Docker and Apptainer, CI with GitHub Actions, and sensitive data on HPC file systems and AWS S3.",
+    "summary": "Reproducible pipelines in Nextflow and Snakemake (one ran 50K+ jobs on an HPC cluster), containers with Docker and Apptainer, CI with GitHub Actions, and sensitive-data management on HPC file systems and AWS S3.",
     "items": [
       { "name": "Git" },
       { "name": "GitHub Actions" },

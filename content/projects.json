@@ -2,7 +2,7 @@
   {
     "title": "multidms",
     "summary": "A JAX package that fits one model across multiple deep mutational scanning experiments, using a shared global epistasis model with sparse, regularized shift parameters to find mutations whose effects differ between conditions. Covers data encoding, model fitting, out-of-sample prediction, and interactive visualization.",
-    "description": "Using Google's JAX library, this open-source Python package provides the utilities for jointly modeling multiple distinct Deep Mutational Scanning datasets. The interface includes a number of tools that help to easily prepare and encode data, initialize and fit models, perform out-of-sample prediction, and interactively visualize the resulting parameter values of interest. This software adds to the growing list of tools for modeling DMS data and has been used to produce results for multiple studies.",
+    "description": "Built on Google's JAX library, this open-source Python package provides utilities for jointly modeling multiple Deep Mutational Scanning datasets. Its interface helps users prepare and encode data, initialize and fit models, make out-of-sample predictions, and interactively visualize the inferred parameters. It adds to the growing set of tools for modeling DMS data and has produced results for multiple studies.",
     "tags": ["Python", "JAX", "Deep Mutational Scanning", "Machine Learning"],
     "links": [
       { "kind": "docs", "label": "Docs", "url": "https://matsengrp.github.io/multidms/" },
@@ -23,7 +23,7 @@
   {
     "title": "phippery",
     "summary": "A software suite for analyzing phage immunoprecipitation sequencing (PhIP-Seq) data. Includes a Nextflow pipeline for processing, a Python API for normalization and enrichment analysis, and a Streamlit app for interactive visualization.",
-    "description": "The phippery software suite provides tools for analyzing data from phage display methods that use immunoprecipitation and deep sequencing to capture antibody binding to peptides, often referred to as \"PhIP-Seq\" experiments. This software has three main components that can be used separately or in conjunction: (i) a Nextflow pipeline, phip-flow, to process raw sequencing data into a compact, multidimensional dataset format, allowing for end-to-end reproducible workflow automation. (ii) a Python API, phippery, which provides interfaces for tasks such as count normalization, enrichment calculation, multidimensional scaling, modeling for significant enrichment of peptides, and finally, (iii) a Streamlit application, phip-viz, as an interactive interface for visualizing the data as a heatmap in a flexible manner.",
+    "description": "The phippery suite analyzes data from phage display methods that use immunoprecipitation and deep sequencing to capture antibody binding to peptides, often called \"PhIP-Seq\" experiments. Its three components work separately or together: (i) phip-flow, a Nextflow pipeline that processes raw sequencing data into a compact, multidimensional dataset and automates reproducible end-to-end workflows; (ii) phippery, a Python API for count normalization, enrichment calculation, multidimensional scaling, and modeling significant peptide enrichment; and (iii) phip-viz, a Streamlit app for flexible, interactive heatmap visualization.",
     "tags": ["Python", "Nextflow", "Streamlit", "Immunology", "Bioinformatics"],
     "links": [
       { "kind": "docs", "label": "Docs", "url": "https://matsengrp.github.io/phippery/introduction.html" },
