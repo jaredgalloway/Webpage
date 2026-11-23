@@ -19,7 +19,7 @@ const FULL_CV_FILENAME = 'Jared_Galloway_CV_full.pdf';
 const LINK_ICONS = { docs: 'faGlobe', paper: 'faNewspaper', code: 'faCode' };
 const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 // Platforms whose handle is an opaque ID; the header prints their label instead.
-const OPAQUE_HANDLES = new Set(['linkedin', 'scholar']);
+const OPAQUE_HANDLES = new Set(['scholar']);
 
 // "2024-01" → "Jan 2024", matching the resume; "Present" passes through.
 function shortDate(value) {
