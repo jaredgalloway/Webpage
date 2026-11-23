@@ -33,7 +33,12 @@ function renderHeader(profile) {
     const text = s.platform === 'scholar' ? 'Google Scholar' : (u.hostname.replace(/^www\./, '') + u.pathname).replace(/\/$/, '');
     return href(s.url, escapeLaTeX(text));
   });
-  const contact = [escapeLaTeX(profile.email), escapeLaTeX(profile.location), ...links].join(' \\quad ');
+  // Line 1: how to reach me and my site; line 2: profiles.
+  const dot = '\\enspace{\\color{muted}\\textperiodcentered}\\enspace ';
+  const contact = [
+    [escapeLaTeX(profile.email), escapeLaTeX(profile.location), ...links.slice(0, 1)],
+    links.slice(1)
+  ].map(line => line.join(dot)).join('\\\\\n');
   return `\\begin{center}
 {\\LARGE\\bfseries ${escapeLaTeX(profile.fullName)}}\\\\[3pt]
 {\\large ${escapeLaTeX(profile.tagline)}}\\\\[5pt]
@@ -60,13 +65,17 @@ function renderPublications(publications) {
     const shown = me === -1 ? p.authors.slice(0, 3) : p.authors.slice(0, me + 1);
     const authors = shown.map(a => a === 'Galloway' ? '\\textbf{Galloway}' : escapeLaTeX(a)).join(', ') +
       (p.authors.length > shown.length ? ', et al.' : '');
-    return `  \\item ${authors} (${escapeLaTeX(p.year)}). ${href(p.url, escapeLaTeX(p.title))}. \\textit{${escapeLaTeX(p.venue)}}.`;
+    return `  \\item ${authors} (${escapeLaTeX(p.year)}). ${href(p.url, escapeLaTeX(p.title))}. \\mbox{\\textit{${escapeLaTeX(p.venue)}}.}`;
   }).join('\n');
-  const total = `${publications.count} publications, ${publications.scholar.citations} citations, h-index ${publications.scholar.hIndex}`;
-  return `${href(publications.scholar.url, escapeLaTeX(total))} (Google Scholar).
-\\begin{itemize}
+  return `\\begin{itemize}
 ${items}
 \\end{itemize}`;
+}
+
+// Scholar totals, set beside the publications heading.
+function renderPubStats(publications) {
+  const total = `${publications.count} publications, ${publications.scholar.citations} citations, h-index ${publications.scholar.hIndex}`;
+  return `${href(publications.scholar.url, escapeLaTeX(total))} (Google Scholar)`;
 }
 
 function renderSkills(skills) {
@@ -88,6 +97,7 @@ function renderResumeTeX(content) {
     summary: toLaTeX(content.profile.summary),
     experience: renderExperience(content.experience),
     publications: renderPublications(content.publications),
+    pubstats: renderPubStats(content.publications),
     skills: renderSkills(content.skills),
     education: renderEducation(content.education)
   };

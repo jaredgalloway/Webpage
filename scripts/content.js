@@ -226,14 +226,4 @@ function forTarget(list, target) {
   return list.filter(x => !x.only || x.only === target);
 }
 
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
-  'August', 'September', 'October', 'November', 'December'];
-
-// "2024-01" → "January, 2024"; "Present" passes through.
-function formatMonthYear(value) {
-  if (value === 'Present') return value;
-  const [year, month] = value.split('-');
-  return `${MONTHS[Number(month) - 1]}, ${year}`;
-}
-
-module.exports = { ROOT, CONTENT, loadContent, forTarget, formatMonthYear };
+module.exports = { ROOT, CONTENT, loadContent, forTarget };
