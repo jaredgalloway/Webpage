@@ -6,7 +6,7 @@
     "endDate": "2026-08",
     "location": "Bozeman, MT (Remote)",
     "details": "Public Health Sciences Division · Matsen Lab",
-    "summary": "Conceptualized and implemented transformer-based deep amino acid selection models (DASM) of viral protein evolution in PyTorch. Designed and built multidms, a JAX model that jointly fits multiple deep mutational scanning datasets, now used in primary analysis pipelines across multiple labs. Built a Nextflow pipeline that ran 50K+ HPC jobs to produce the primary data for a study published in *Cell*.",
+    "summary": "Conceptualized and implemented transformer-based deep amino acid selection models (DASM) of viral protein evolution in PyTorch. Designed and built multidms, a JAX model that jointly fits multiple deep mutational scanning datasets, now used in primary analysis pipelines across multiple labs. Built a containerized Nextflow pipeline that ran 50K+ HPC jobs to produce the primary data for a study published in *Cell*.",
     "highlights": [
       {
         "title": "Deep selection models for viral protein evolution",
@@ -37,7 +37,7 @@
     "endDate": "2024-01",
     "location": "Bozeman, MT (Remote)",
     "details": "Public Health Sciences Division · Matsen Lab",
-    "summary": "Designed an algorithm that estimates fitness over time for every codon mutation across a phylogeny of 13M+ viral genomes. Built and deployed public Nextstrain views of antibody escape for SARS-CoV-2, influenza, and Lassa virus. Mentored interns, students, and postdocs in ML and computational methods.",
+    "summary": "Designed an algorithm that estimates fitness over time for every codon mutation across a phylogeny of 13M+ viral genomes. Built and deployed public Nextstrain genomic surveillance views of antibody escape for SARS-CoV-2, influenza, and Lassa virus. Mentored interns, students, and postdocs in ML and computational methods.",
     "highlights": [
       {
         "title": "Algorithmic design for mutational fitness estimation",
@@ -60,7 +60,7 @@
     "endDate": "2020-12",
     "location": "Seattle, WA",
     "details": "Paid Internship · Computational Biology · Matsen Lab",
-    "summary": "Built phippery, a PhIP-Seq analysis suite (Nextflow pipeline, Python API for normalization and enrichment statistics, Streamlit app) used in six collaborative publications. Co-developed torchdms, a PyTorch package for neural-network global epistasis models. Led cross-lab team meetings.",
+    "summary": "Built phippery, a PhIP-Seq analysis suite (Nextflow pipeline from raw sequencing reads to results, Python API for normalization and enrichment statistics, Streamlit app) used in six collaborative publications. Co-developed torchdms, a PyTorch package for neural-network global epistasis models. Led cross-lab team meetings.",
     "highlights": [
       {
         "title": "PhIP-Seq software and analysis",
