@@ -18,15 +18,15 @@
       },
       {
         "title": "Bioinformatics for studying affinity maturation in germinal centers",
-        "text": "Worked with wet-lab researchers to build an efficient Nextflow pipeline that used high-performance computing clusters and software containers to run more than 50K independent data-processing steps and produce 140+ feature-rich phylogenetic trees. The pipeline produced the primary data and analysis for a large study spanning multiple groups, since published in *Cell* [@DeWitt_2025]."
+        "text": "Worked with wet-lab researchers to build an efficient, containerized Nextflow pipeline on high-performance computing clusters. It ran more than 50K independent data-processing steps to produce 140+ feature-rich phylogenetic trees. The pipeline produced the primary data and analysis for a large study spanning multiple groups, since published in *Cell* [@DeWitt_2025]."
       },
       {
         "title": "Administrative data management",
-        "text": "Managed and stored sensitive data according to best practices across computational environments, including HPC file systems and AWS S3 buckets. Scrubbed sensitive data from repository histories before publication."
+        "text": "Managed sensitive data according to best practices across computational environments, including HPC file systems and AWS S3 buckets. Scrubbed sensitive data from repository histories before publication."
       },
       {
         "title": "Visualizing and communicating results",
-        "text": "Visualized data for researchers and produced publication figures that communicate patterns clearly. Regularly presented the background and results of my research at lab, collaborator, and team meetings."
+        "text": "Visualized data for researchers and produced publication figures that communicate patterns clearly. Regularly presented my research at lab, collaborator, and team meetings."
       }
     ]
   },
@@ -37,7 +37,7 @@
     "endDate": "2024-01",
     "location": "Bozeman, MT (Remote)",
     "details": "Public Health Sciences Division · Matsen Lab",
-    "summary": "Designed an algorithm that estimates fitness over time for every codon mutation across a phylogeny of 13M+ viral genomes. Built and deployed public Nextstrain genomic surveillance views of antibody escape for SARS-CoV-2, influenza, and Lassa virus. Mentored interns, students, and postdocs in ML and computational methods.",
+    "summary": "Designed an algorithm that estimates fitness over time for every codon mutation across a phylogeny of 13M+ viral genomes. Deployed public Nextstrain genomic surveillance views of antibody escape for SARS-CoV-2, influenza, and Lassa virus. Mentored interns, graduate students, and postdocs in computational methods.",
     "highlights": [
       {
         "title": "Algorithmic design for mutational fitness estimation",
@@ -45,11 +45,11 @@
       },
       {
         "title": "Genomic surveillance of viral escape",
-        "text": "Built and deployed custom public Nextstrain pages for viruses including [SARS-CoV-2](https://nextstrain.org/groups/dms-phenotype/ncov/Dadonaite-2023-Cell), influenza, and Lassa, each estimating viral escape from antibodies of interest. These pages have supplied analysis tools for several studies and helped assess the antibodies' potential as therapeutics."
+        "text": "Deployed custom public Nextstrain pages for viruses including [SARS-CoV-2](https://nextstrain.org/groups/dms-phenotype/ncov/Dadonaite-2023-Cell), influenza, and Lassa, each estimating viral escape from antibodies of interest. These pages have supplied analysis tools for several studies and helped assess the antibodies' potential as therapeutics."
       },
       {
         "title": "Mentoring",
-        "text": "Mentored undergraduate interns, graduate students, and postdocs, and onboarded new staff in machine learning, algorithm implementation, HPC clusters, workflow management, version control, compute environments, and build systems."
+        "text": "Mentored undergraduate interns, graduate students, and postdocs. Onboarded new staff in machine learning, algorithm implementation, HPC clusters, workflow management, version control, compute environments, and build systems."
       }
     ]
   },
@@ -64,7 +64,7 @@
     "highlights": [
       {
         "title": "PhIP-Seq software and analysis",
-        "text": "Developed [phippery](https://matsengrp.github.io/phippery/introduction.html), a software suite for analyzing raw Phage ImmunoPrecipitation Sequencing (PhIP-Seq) data. It comprises a Python package for modeling and computing enrichment statistics, an interactive app for visualizing processed data, and an end-to-end (raw data → results) Nextflow pipeline that makes the standard analysis workflow portable and reproducible. Six collaborative publications have used it to process data and produce results [@Garrett_2022, @Stoddard_2021, @Garrett_2021, @Stoddard_2023, @Willcox_2022, @Itell_2021]."
+        "text": "Developed [phippery](https://matsengrp.github.io/phippery/introduction.html), a software suite for analyzing raw Phage ImmunoPrecipitation Sequencing (PhIP-Seq) data. It comprises three parts: a Python package for computing enrichment statistics, an interactive app for visualizing processed data, and an end-to-end (raw data → results) Nextflow pipeline. The pipeline makes the standard analysis workflow portable and reproducible. Six collaborative publications have used it to process data and produce results [@Garrett_2022, @Stoddard_2021, @Garrett_2021, @Stoddard_2023, @Willcox_2022, @Itell_2021]."
       },
       {
         "title": "Neural networks for global epistasis modeling",
@@ -72,7 +72,7 @@
       },
       {
         "title": "Team organization",
-        "text": "Organized and led team meetings across multiple labs and studies to brainstorm, set short-term goals, and present results."
+        "text": "Led team meetings across multiple labs to brainstorm, set short-term goals, and present results."
       }
     ]
   },
@@ -87,11 +87,11 @@
     "highlights": [
       {
         "title": "Teaching",
-        "text": "Led discussions, taught lessons, and proctored exams for four classroom hours each week in a graduate-level course on Python/Bash scripting, Unix file formats and parsing, and algorithmic thinking."
+        "text": "Led discussions, taught lessons, and proctored exams for four classroom hours each week. The graduate-level course covered Python/Bash scripting, Unix file formats, parsing, and algorithmic thinking."
       },
       {
         "title": "Assignment design",
-        "text": "Built Docker containers and a Jupyter Notebook auto-grading pipeline that gave students a unified Python programming environment. Held office hours and graded about 100 assignments and exams per week, with feedback."
+        "text": "Built Docker containers and a Jupyter Notebook auto-grading pipeline that gave students a unified Python programming environment. Held office hours and graded about 100 assignments or exams per week, with feedback."
       }
     ]
   },
@@ -102,11 +102,11 @@
     "endDate": "2019-06",
     "location": "Eugene, OR",
     "details": "Institute of Ecology and Evolution · Ralph & Kern Co-Lab",
-    "summary": "Trained and evaluated recurrent neural networks on simulated genomes to estimate recombination rates (ReLERNN). Brought software engineering practice (architecture, version control, CI) to open-source tools including tskit and stdpopsim, and built Snakemake pipelines for published analyses.",
+    "summary": "Trained and evaluated recurrent neural networks on simulated genomes to estimate recombination rates (ReLERNN). Brought software engineering practice (architecture, version control, CI) to open-source tools including tskit and stdpopsim. Built Snakemake pipelines for published analyses.",
     "highlights": [
       {
         "title": "Software engineering",
-        "text": "Applied software engineering best practices, such as architecture design, version control, and continuous integration, to open-source projects including [tskit](https://tskit.dev/), [stdpopsim](https://popsim-consortium.github.io/stdpopsim-docs/stable/index.html), and [ReLERNN](https://github.com/kr-colab/ReLERNN)."
+        "text": "Applied software engineering best practices (architecture design, version control, continuous integration) to open-source projects including [tskit](https://tskit.dev/), [stdpopsim](https://popsim-consortium.github.io/stdpopsim-docs/stable/index.html), and [ReLERNN](https://github.com/kr-colab/ReLERNN)."
       },
       {
         "title": "Experimentation and model development",
@@ -125,7 +125,7 @@
     "endDate": "2018-06",
     "location": "Eugene, OR",
     "details": "Institute of Ecology and Evolution · Ralph & Kern Co-Lab",
-    "summary": "Implemented tree-sequence recording in the SLiM population genetics simulator and benchmarked its speed and memory use for an honors thesis. Led a published simulation study of rapid evolution in stickleback fish.",
+    "summary": "Implemented tree-sequence recording in the SLiM population genetics simulator, then benchmarked its speed and memory use for an honors thesis. Led a published simulation study of rapid evolution in stickleback fish.",
     "highlights": [
       {
         "title": "Algorithmic implementation of tree-sequence recording",
@@ -133,11 +133,11 @@
       },
       {
         "title": "Algorithmic benchmarking",
-        "text": "Used cluster resources and visualization tools to compare large-scale simulations and benchmark performance on metrics including memory allocation and user runtime. Presented this work in my [undergraduate honors thesis](https://www.cs.uoregon.edu/Reports/UG-201806-Galloway.pdf); it also informed ongoing studies."
+        "text": "Used cluster resources to compare large-scale simulations, benchmarking performance on metrics including memory allocation and user runtime. Presented this work in my [undergraduate honors thesis](https://www.cs.uoregon.edu/Reports/UG-201806-Galloway.pdf); it also informed ongoing studies."
       },
       {
         "title": "Simulation studies of rapid evolution",
-        "text": "Developed and analyzed large-scale, realistic evolutionary simulation models to study migration patterns involved in the rapid evolution of stickleback fish on the Alaskan coast, and led the resulting publication [@Galloway_2020]."
+        "text": "Developed large-scale, realistic evolutionary simulation models to study migration patterns involved in the rapid evolution of stickleback fish on the Alaskan coast. Led the resulting publication [@Galloway_2020]."
       }
     ]
   },
@@ -153,7 +153,7 @@
     "highlights": [
       {
         "title": "Grading",
-        "text": "Graded and wrote feedback on about 100 assignments each week, covering proofs, set theory, and combinatorics."
+        "text": "Graded about 100 assignments each week with written feedback, covering proofs, set theory, and combinatorics."
       }
     ]
   }
