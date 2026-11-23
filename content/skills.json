@@ -1,7 +1,7 @@
 [
   {
     "category": "Bioinformatics & Genomics",
-    "summary": "Taking sequencing data from raw reads to results: PhIP-Seq processing and enrichment analysis ([phippery](https://jaredgalloway.com/research/#phippery)), deep mutational scanning, phylogenetic analysis of 13M+ viral genomes, and public Nextstrain views for genomic surveillance of SARS-CoV-2, influenza, and Lassa virus.",
+    "summary": "Taking sequencing data from raw reads to results: PhIP-Seq enrichment analysis ([phippery](https://jaredgalloway.com/research/#phippery)), deep mutational scanning, and phylogenetic analysis of 13M+ viral genomes. Public Nextstrain views support genomic surveillance of SARS-CoV-2, influenza, and Lassa virus.",
     "items": [
       { "name": "NGS data analysis" },
       { "name": "Phylogenetics" },
@@ -26,7 +26,7 @@
   },
   {
     "category": "Modeling & Statistics",
-    "summary": "Pulling biological signal out of noisy experiments: regularized and sparse models, global epistasis, Bayesian methods, and simulation to generate training data and validate methods.",
+    "summary": "Pulling biological signal out of noisy experiments with sparse regularized models, global epistasis, and Bayesian methods. Simulation supplies the training data and validates each method.",
     "items": [
       { "name": "Regularized / sparse regression" },
       { "name": "Global epistasis models" },
@@ -61,7 +61,7 @@
   },
   {
     "category": "Visualization",
-    "summary": "Figures for papers in *Cell* and *eLife*, and interactive tools such as [phippery](https://jaredgalloway.com/research/#phippery)'s Streamlit app and multidms's interactive plots.",
+    "summary": "Figures for papers in *Cell* and *eLife*. Interactive tools include [phippery](https://jaredgalloway.com/research/#phippery)'s Streamlit app and multidms's plots.",
     "items": [
       { "name": "Matplotlib" },
       { "name": "Plotnine", "note": "grammar of graphics" },
@@ -70,7 +70,7 @@
   },
   {
     "category": "Tools & Infrastructure",
-    "summary": "Reproducible pipelines in Nextflow and Snakemake (one ran 50K+ jobs on an HPC cluster), containers with Docker and Apptainer, CI with GitHub Actions, and sensitive-data management on HPC file systems and AWS S3.",
+    "summary": "Reproducible pipelines in Nextflow and Snakemake (one ran 50K+ jobs on an HPC cluster), built on Docker or Apptainer containers with GitHub Actions for CI. Sensitive-data management on HPC file systems and AWS S3.",
     "items": [
       { "name": "Git" },
       { "name": "GitHub Actions" },
