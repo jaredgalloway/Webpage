@@ -1,5 +1,17 @@
 [
   {
+    "category": "Bioinformatics & Genomics",
+    "summary": "Taking sequencing data from raw reads to results: PhIP-Seq processing and enrichment analysis ([phippery](https://jaredgalloway.com/research/#phippery)), deep mutational scanning, phylogenetic analysis of 13M+ viral genomes, and public Nextstrain views for genomic surveillance of SARS-CoV-2, influenza, and Lassa virus.",
+    "items": [
+      { "name": "NGS data analysis" },
+      { "name": "Phylogenetics" },
+      { "name": "Genomic surveillance", "note": "Nextstrain" },
+      { "name": "Deep mutational scanning" },
+      { "name": "PhIP-Seq" },
+      { "name": "Population genetics simulation", "only": "cv" }
+    ]
+  },
+  {
     "category": "Machine Learning",
     "summary": "Transformer models of viral protein evolution (DASM, in PyTorch), joint models of deep mutational scans ([multidms](https://jaredgalloway.com/research/#multidms), in JAX), neural-network global epistasis models (torchdms, in PyTorch), and recurrent networks for recombination-rate estimation ([ReLERNN](https://jaredgalloway.com/research/#relernn), in TensorFlow/Keras).",
     "items": [
@@ -9,7 +21,7 @@
       { "name": "Scikit-learn" },
       { "name": "Transformers" },
       { "name": "Recurrent neural networks" },
-      { "name": "Simulation-based deep learning" }
+      { "name": "Simulation-based deep learning", "only": "cv" }
     ]
   },
   {
@@ -24,12 +36,13 @@
   },
   {
     "category": "Languages",
-    "summary": "Python for nearly everything; C++ for tree-sequence recording in the SLiM simulator; R, Bash, and JavaScript where a project called for them.",
+    "summary": "Python for nearly everything; C++ for tree-sequence recording in the SLiM simulator; R, Bash, and JavaScript where a project called for them; SQL from computer science coursework.",
     "items": [
       { "name": "Python", "note": "preferred" },
       { "name": "R" },
       { "name": "C/C++" },
       { "name": "Bash" },
+      { "name": "SQL", "note": "coursework" },
       { "name": "Java" },
       { "name": "JavaScript" }
     ]
