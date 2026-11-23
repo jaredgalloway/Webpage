@@ -25,7 +25,7 @@ summary per category).
 | `cv/resume.tex` | One-page resume layout; filled by `scripts/resume.js` |
 | `cv/texlive-packages.txt` | TeX Live packages CI installs |
 | `site/` | HTML template (`{{name}}` placeholders), CSS, JS, static files |
-| `scripts/content.js` | Loads and validates content; `forTarget()`, `formatMonthYear()` |
+| `scripts/content.js` | Loads and validates content; `forTarget()` |
 | `scripts/markup.js` | Shared inline markup → HTML / LaTeX, plus the escapers |
 | `scripts/bib.js` | Minimal BibTeX reader for the site (the CV uses real bibtex) |
 | `scripts/cv.js`, `scripts/resume.js`, `scripts/site.js` | Renderers/builders for each output |

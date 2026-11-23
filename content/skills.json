@@ -42,7 +42,7 @@
       { "name": "R" },
       { "name": "C/C++" },
       { "name": "Bash" },
-      { "name": "SQL", "note": "coursework" },
+      { "name": "SQL (coursework)" },
       { "name": "Java" },
       { "name": "JavaScript" }
     ]

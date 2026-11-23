@@ -6,7 +6,7 @@
     "endDate": "2026-08",
     "location": "Bozeman, MT (Remote)",
     "details": "Public Health Sciences Division · Matsen Lab",
-    "summary": "Conceptualized and implemented transformer-based deep amino acid selection models (DASM) of viral protein evolution in PyTorch. Designed and built multidms, a JAX model that jointly fits multiple deep mutational scanning datasets, now used in primary analysis pipelines across multiple labs. Built a containerized Nextflow pipeline that ran 50K+ HPC jobs to produce the primary data for a study published in *Cell*.",
+    "summary": "Conceptualized and implemented transformer-based deep amino acid selection models (DASM) of viral protein evolution in PyTorch. Designed and built multidms, a JAX package that jointly fits multiple deep mutational scanning datasets, now used in the Bloom lab's primary analysis pipelines. Built a containerized Nextflow pipeline that ran 50K+ HPC jobs to produce the primary data for a study published in *Cell*.",
     "highlights": [
       {
         "title": "Deep selection models for viral protein evolution",
@@ -14,7 +14,7 @@
       },
       {
         "title": "Jointly modeling deep mutational scanning (DMS) datasets",
-        "text": "Developed a new approach for jointly modeling multiple DMS datasets, validated both *in silico* on simulated data and *in vitro* by testing mutations in the lab. Implemented it as a functional API in [multidms](https://matsengrp.github.io/multidms/), a JAX-based Python package [@Haddox_2023] now used in primary analysis pipelines across multiple labs."
+        "text": "Developed a new approach for jointly modeling multiple DMS datasets, validated both *in silico* on simulated data and *in vitro* by testing mutations in the lab. Implemented it as a functional API in [multidms](https://matsengrp.github.io/multidms/), a JAX-based Python package [@Haddox_2023] now used in the Bloom lab's primary analysis pipelines."
       },
       {
         "title": "Bioinformatics for studying affinity maturation in germinal centers",

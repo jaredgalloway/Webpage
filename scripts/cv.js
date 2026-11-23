@@ -8,7 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
-const { ROOT, CONTENT, forTarget, formatMonthYear } = require('./content');
+const { ROOT, CONTENT, forTarget } = require('./content');
 const { toLaTeX, escapeLaTeX, escapeLaTeXURL } = require('./markup');
 
 const CV_SRC = path.join(ROOT, 'cv');
@@ -17,6 +17,23 @@ const CV_FILENAME = 'Jared_Galloway_CV.pdf';
 const FULL_CV_FILENAME = 'Jared_Galloway_CV_full.pdf';
 
 const LINK_ICONS = { docs: 'faGlobe', paper: 'faNewspaper', code: 'faCode' };
+const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+// Platforms whose handle is an opaque ID; the header prints their label instead.
+const OPAQUE_HANDLES = new Set(['linkedin', 'scholar']);
+
+// "2024-01" → "Jan 2024", matching the resume; "Present" passes through.
+function shortDate(value) {
+  if (value === 'Present') return value;
+  const [year, month] = value.split('-');
+  return `${SHORT_MONTHS[Number(month) - 1]} ${year}`;
+}
+
+// Bolds the CV owner's name in a generated .bbl (author lists run to 30 names).
+function boldOwner(bblPath, lastName) {
+  const bbl = fs.readFileSync(bblPath, 'utf8');
+  const name = new RegExp(`J\\.(~G\\.)?[~\\s]+${lastName}`, 'g');
+  fs.writeFileSync(bblPath, bbl.replace(name, m => `\\textbf{${m.replace(/\s+/g, ' ')}}`), 'utf8');
+}
 
 function href(url, inner) {
   return `\\href{${escapeLaTeXURL(url)}}{${inner}}`;
@@ -45,7 +62,7 @@ ${table(row(s => href(s.url, `\\${s.icon}`)))}
 
 \\vspace{-19pt}
 
-${table(row(s => href(s.url, `\\small{${escapeLaTeX(s.handle)}}`)))}`;
+${table(row(s => href(s.url, `\\small{${escapeLaTeX(OPAQUE_HANDLES.has(s.platform) ? s.label : s.handle)}}`)))}`;
 }
 
 function renderStatement(profile) {
@@ -56,8 +73,8 @@ function subheading(title, org, start, end, location, details) {
   return `    \\resumeSubheading
         {${title}}
         {${org}}
-        {${formatMonthYear(start)}}
-        {${formatMonthYear(end)}}
+        {${shortDate(start)}}
+        {${shortDate(end)}}
         {${location}}
         {${details}}`;
 }
@@ -175,6 +192,8 @@ function buildCV(content, outDir, { full = false } = {}) {
   run('pdflatex', pdflatex, work);
   run('bibtex', ['prim'], work);
   run('bibtex', ['supp'], work);
+  const owner = content.profile.name.split(' ').pop();
+  for (const bbl of ['prim.bbl', 'supp.bbl']) boldOwner(path.join(work, bbl), owner);
   run('pdflatex', pdflatex, work);
   run('pdflatex', pdflatex, work);
 

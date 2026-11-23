@@ -22,8 +22,8 @@
 \usepackage{tabularx}
 
 \usepackage{multibib}
-\newcites{prim}{first/co-first author publications}
-\newcites{supp}{supporting author publications}
+\newcites{prim}{First / Co-first Author Publications}
+\newcites{supp}{Supporting Author Publications}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -31,7 +31,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage[letterpaper, margin=0.5in]{geometry}
 % Adjust margins
 % \addtolength{\oddsidemargin}{-0.3in}
 % \addtolength{\evensidemargin}{-0.3in}
@@ -40,8 +40,8 @@
 % \addtolength{\textheight}{1.0in}
 
 \usepackage{xcolor}
-\definecolor{mylightblue}{RGB}{70, 130, 180}
-\definecolor{mygrey}{RGB}{124, 127, 134}
+\definecolor{mylightblue}{RGB}{36, 84, 138}
+\definecolor{mygrey}{RGB}{105, 108, 115}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -69,8 +69,8 @@
 % make a minipage rule for personal statement
 \newcommand{\personalstatement}[1]{
   \begin{center}
-  \begin{minipage}[t]{0.96\textwidth}
-    \linespread{0.90}\selectfont
+  \begin{minipage}[t]{\linewidth}
+    \linespread{0.95}\selectfont
     \vspace{.1cm}\small{
       #1 \vspace{1pt}
     }
@@ -87,8 +87,8 @@
 
 
 \newcommand{\resumeItem}[2]{
-  \begin{minipage}[t]{0.89\textwidth}
-    \linespread{0.85}\selectfont
+  \begin{minipage}[t]{\linewidth}
+    \linespread{0.95}\selectfont
     \vspace{.1cm}\item\small{
       \textbf{#1}{: #2 \vspace{1pt}}
     }
@@ -106,22 +106,22 @@
 
 \newcommand{\resumeSubheading}[6]{
   \vspace{-3pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{#2} \\
-      \textit{\small#6}&\textit{\small#5} $\cdot$ \textit{#3} $\rightarrow$ \textit{#4} \\
+      \textit{\small#6}&\textit{\small#5} $\cdot$ \textit{#3} -- \textit{#4} \\
     \end{tabular*}\vspace{-2pt}
 }
 
 % Wrapped in a minipage so a project's heading never strands at a page bottom.
 \newcommand{\resumeSoftwareSubheading}[3]{
   \vspace{-3pt}\item
-    \begin{minipage}[t]{0.97\textwidth}
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \begin{minipage}[t]{\linewidth}
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1}\label{#1} & #2 \\
     \end{tabular*}\vspace{-7pt}
     \begin{center}
-    \begin{minipage}{0.897\textwidth}
-    \linespread{0.80}\selectfont
+    \begin{minipage}{0.95\linewidth}
+    \linespread{0.95}\selectfont
         {\small#3}
     \end{minipage}\vspace{-7pt}
     \end{center}
@@ -133,7 +133,7 @@
 
 % level 1 and 2 bulletpoints for items
 \renewcommand{\labelitemi}{$\circ$}
-\renewcommand{\labelitemii}{$\cdot$}
+\renewcommand{\labelitemii}{--}
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}[]}
