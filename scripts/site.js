@@ -280,16 +280,11 @@ function renderSkillsPage(content) {
 
 // ── Layout ──────────────────────────────────────────────────────────────
 
-function renderNav(active, files) {
-  const sections = SECTIONS.map(s => {
+function renderNav(active) {
+  return SECTIONS.map(s => {
     const current = s.id === active;
     return `<li><a href="/${s.id}/" class="menu-item${current ? ' active' : ''}"${current ? ' aria-current="page"' : ''}>${s.id}</a></li>`;
-  });
-  const pdfs = [
-    `<li><a href="/${files.resume}" class="menu-item" target="_blank" rel="noopener">résumé</a></li>`,
-    `<li><a href="/${files.cv}" class="menu-item" target="_blank" rel="noopener">cv</a></li>`
-  ];
-  return sections.concat(pdfs).join('\n              ');
+  }).join('\n              ');
 }
 
 function renderJSONLD(profile) {
@@ -333,9 +328,10 @@ function renderPage(template, content, { path: urlPath, title, description, acti
       seo_meta: meta,
       seo_jsonld: jsonld || '',
       brand: escapeHTML(new URL(profile.website).hostname),
-      nav_links: renderNav(active, files),
+      nav_links: renderNav(active),
       main,
-      footer: `&copy; ${new Date().getFullYear()} ${escapeHTML(profile.name)}`
+      footer: `<span>&copy; ${new Date().getFullYear()} ${escapeHTML(profile.name)}</span>
+        <span class="footer__links"><a href="/${files.resume}" target="_blank" rel="noopener">résumé (pdf)</a> <a href="/${files.cv}" target="_blank" rel="noopener">cv (pdf)</a></span>`
     };
     if (!(key in values)) throw new Error(`site/template.html: unknown placeholder ${match}`);
     return values[key];
