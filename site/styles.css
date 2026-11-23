@@ -469,6 +469,18 @@ body.terminal .paper__title {
   margin-top: 0;
 }
 
+.footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: calc(var(--global-space) / 2) calc(var(--global-space) * 2);
+}
+
+.footer__links {
+  display: flex;
+  gap: calc(var(--global-space) * 1.5);
+}
+
 /* ── Responsive ─────────────────────────────────────────────────────── */
 
 @media (max-width: 40rem) {
